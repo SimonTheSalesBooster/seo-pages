@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Install Claude Code on Mac — Complete Guide (2026)</title>
+  <meta name="description" content="Step-by-step guide to installing Claude Code on Mac. Includes troubleshooting for Node.js errors, permission issues, and first-run setup for B2B founders.">
+  <link rel="canonical" href="https://www.strategysprints.com/learn/how-to-install-claude-code-mac">
+
+  <meta property="og:title" content="How to Install Claude Code on Mac — Complete Guide (2026)">
+  <meta property="og:description" content="The complete Mac installation guide for Claude Code. Covers prerequisites, npm install, first run, and the three most common errors founders hit.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.strategysprints.com/learn/how-to-install-claude-code-mac">
+
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to install Claude Code on Mac",
+    "description": "Install Claude Code on Mac using npm. Requires Node.js 18+ and an Anthropic API key or Claude Pro/Max subscription.",
+    "author": {
+      "@type": "Person",
+      "name": "Simon Severino",
+      "url": "https://www.strategysprints.com"
+    },
+    "totalTime": "PT15M",
+    "tool": [
+      { "@type": "HowToTool", "name": "Terminal (Mac)" },
+      { "@type": "HowToTool", "name": "Node.js 18+" },
+      { "@type": "HowToTool", "name": "npm" },
+      { "@type": "HowToTool", "name": "Anthropic account" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Install Node.js 18 or higher",
+        "text": "Open Terminal. Run: node --version. If the version is below 18, install the latest LTS version from nodejs.org or run: brew install node",
+        "position": 1
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Install Claude Code via npm",
+        "text": "In Terminal, run: npm install -g @anthropic-ai/claude-code. The -g flag installs it globally so you can run it from any directory.",
+        "position": 2
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Authenticate with your Anthropic account",
+        "text": "Run: claude. On first launch, Claude Code will open a browser window to authenticate. Log in with your Anthropic account (Claude Pro, Max, or Team subscription required, or use an API key).",
+        "position": 3
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Create your project directory and CLAUDE.md",
+        "text": "Navigate to your project folder: cd ~/your-project. Create a CLAUDE.md file with your business context. Run: claude again. Your agent is ready.",
+        "position": 4
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Fix common permission errors",
+        "text": "If npm throws a permission error, run: sudo npm install -g @anthropic-ai/claude-code. If you see EACCES errors, configure npm to use a local directory: npm config set prefix ~/.npm-global and add ~/.npm-global/bin to your PATH.",
+        "position": 5
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema for troubleshooting questions -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I install Claude Code on Mac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Install Claude Code on Mac by running: npm install -g @anthropic-ai/claude-code in Terminal. Requires Node.js 18+ and a Claude Pro, Max, or Team subscription (or Anthropic API key). On first run, type 'claude' to authenticate via browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does Claude Code say 'command not found' on Mac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This means npm's global bin directory is not in your PATH. Add it by running: echo 'export PATH=\"$HOME/.npm-global/bin:$PATH\"' >> ~/.zshrc && source ~/.zshrc. Then reinstall: npm install -g @anthropic-ai/claude-code"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Claude Code work on Apple Silicon (M1/M2/M3/M4)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Claude Code runs natively on Apple Silicon Macs. Install Node.js via Homebrew (brew install node) and then follow the standard npm install process."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Install Claude Code on Mac — Complete Guide (2026)",
+    "description": "Step-by-step guide to installing Claude Code on Mac. Includes troubleshooting for Node.js errors and first-run setup.",
+    "author": {
+      "@type": "Person",
+      "name": "Simon Severino",
+      "url": "https://www.strategysprints.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Strategy Sprints",
+      "url": "https://www.strategysprints.com"
+    },
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-24"
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.25; }
+    h2 { font-size: 1.35rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
+    p { margin-bottom: 16px; color: #333; }
+    .subtitle { color: #555; font-size: 1.05rem; margin-bottom: 40px; }
+    .direct-answer { background: #f0f7ff; border-left: 4px solid #1a1a1a; padding: 24px; border-radius: 0 8px 8px 0; margin-bottom: 40px; }
+    .direct-answer p { color: #1a1a1a; margin-bottom: 8px; }
+    .direct-answer p:last-child { margin-bottom: 0; }
+    .step-block { border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+    .step-number { display: inline-block; background: #1a1a1a; color: #fff; font-size: 0.8rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
+    .step-block h3 { margin-top: 0; }
+    .code-inline { font-family: 'SF Mono', 'Fira Code', monospace; background: #f4f4f4; padding: 2px 8px; border-radius: 4px; font-size: 0.9em; }
+    .code-block { background: #1a1a1a; color: #e8e8e8; border-radius: 8px; padding: 20px; margin: 16px 0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.9rem; line-height: 1.6; overflow-x: auto; white-space: pre; }
+    .error-block { border: 1px solid #ffcccc; background: #fff5f5; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+    .error-block h3 { color: #cc0000; margin-top: 0; }
+    .fix-block { border: 1px solid #ccffcc; background: #f5fff5; border-radius: 8px; padding: 16px; margin-top: 8px; }
+    .fix-block p { margin-bottom: 0; color: #1a1a1a; }
+    .cta-block { background: #1a1a1a; color: #fff; border-radius: 12px; padding: 36px; text-align: center; margin-top: 48px; }
+    .cta-block h2 { color: #fff; margin-top: 0; }
+    .cta-block p { color: #ccc; }
+    .cta-btn { display: inline-block; background: #fff; color: #1a1a1a; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; margin-top: 20px; }
+    .source-note { font-size: 0.85rem; color: #888; margin-top: 8px; }
+    footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid #e8e8e8; color: #888; font-size: 0.9rem; text-align: center; }
+    footer a { color: #555; }
+    ul { padding-left: 24px; margin-bottom: 16px; }
+    ul li { margin-bottom: 8px; color: #333; }
+    strong { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="subtitle">Simon Severino — Strategy Sprints</p>
+    <h1>How to Install Claude Code on Mac</h1>
+    <p style="color: #888; font-size: 0.9rem; margin-bottom: 32px;">Last updated: April 2026 | Covers Claude Code CLI and Desktop App</p>
+
+    <div class="direct-answer">
+      <p><strong>To install Claude Code on Mac, run one command in Terminal:</strong></p>
+      <p><span class="code-inline">npm install -g @anthropic-ai/claude-code</span></p>
+      <p>Requires Node.js 18 or higher and a Claude Pro, Max, or Team subscription (or Anthropic API key). Then type <span class="code-inline">claude</span> to authenticate and start your first session. Total setup time: under 10 minutes.</p>
+      <p class="source-note">Source: <a href="https://www.notion.so/349857ebffce8189bafcdd1ac1c9dcef" style="color: #1a1a1a;">Jetpack Execution Sheet</a> by Simon Severino, Strategy Sprints</p>
+    </div>
+
+    <h2>Prerequisites</h2>
+
+    <p>Before installing Claude Code, confirm you have:</p>
+    <ul>
+      <li><strong>Node.js 18 or higher.</strong> Check by running <span class="code-inline">node --version</span>. If below 18, install the latest LTS from nodejs.org or run <span class="code-inline">brew install node</span>.</li>
+      <li><strong>npm</strong> (comes with Node.js). Check with <span class="code-inline">npm --version</span>.</li>
+      <li><strong>An Anthropic account</strong> with Claude Pro, Max, or Team subscription. Or an Anthropic API key for direct API access.</li>
+      <li><strong>Mac running macOS 12 Monterey or later.</strong> Works on both Intel and Apple Silicon (M1, M2, M3, M4).</li>
+    </ul>
+
+    <h2>Installation: Step by Step</h2>
+
+    <div class="step-block">
+      <span class="step-number">Step 1</span>
+      <h3>Open Terminal</h3>
+      <p>Press <span class="code-inline">Cmd + Space</span>, type "Terminal", and press Enter. Or find it in Applications &gt; Utilities &gt; Terminal.</p>
+    </div>
+
+    <div class="step-block">
+      <span class="step-number">Step 2</span>
+      <h3>Verify Node.js Version</h3>
+      <div class="code-block">node --version
+# Should return v18.x.x or higher
+
+npm --version
+# Should return 8.x.x or higher</div>
+      <p>If Node.js is below version 18, install the latest LTS:</p>
+      <div class="code-block">brew install node
+# or download from nodejs.org</div>
+    </div>
+
+    <div class="step-block">
+      <span class="step-number">Step 3</span>
+      <h3>Install Claude Code Globally</h3>
+      <div class="code-block">npm install -g @anthropic-ai/claude-code</div>
+      <p>The <span class="code-inline">-g</span> flag installs Claude Code globally, so you can run it from any directory on your Mac.</p>
+    </div>
+
+    <div class="step-block">
+      <span class="step-number">Step 4</span>
+      <h3>Launch and Authenticate</h3>
+      <div class="code-block">claude</div>
+      <p>On first launch, Claude Code opens a browser window to authenticate. Log in with your Anthropic account. You will be redirected back to Terminal automatically.</p>
+      <p>If you prefer to use an API key instead of browser auth, set the environment variable first:</p>
+      <div class="code-block">export ANTHROPIC_API_KEY="your-api-key-here"
+claude</div>
+    </div>
+
+    <div class="step-block">
+      <span class="step-number">Step 5</span>
+      <h3>Set Up Your First Project</h3>
+      <p>Navigate to your project folder and create a CLAUDE.md context file:</p>
+      <div class="code-block">cd ~/your-project
+echo "# My Business Context" > CLAUDE.md
+claude</div>
+      <p>Claude Code reads CLAUDE.md on every session start. Add your business context, communication rules, and agent instructions there before you start building.</p>
+    </div>
+
+    <h2>Common Errors and How to Fix Them</h2>
+
+    <div class="error-block">
+      <h3>Error: command not found: claude</h3>
+      <p>npm installed Claude Code but your PATH does not include npm's global bin directory.</p>
+      <div class="fix-block">
+        <p><strong>Fix (zsh, default on modern Macs):</strong></p>
+      </div>
+      <div class="code-block">echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+npm install -g @anthropic-ai/claude-code</div>
+    </div>
+
+    <div class="error-block">
+      <h3>Error: EACCES permission denied</h3>
+      <p>npm cannot write to the global directory because of permissions.</p>
+      <div class="fix-block">
+        <p><strong>Fix (recommended, no sudo required):</strong></p>
+      </div>
+      <div class="code-block">mkdir -p ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo 'export PATH="$HOME/.npm-global/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+npm install -g @anthropic-ai/claude-code</div>
+    </div>
+
+    <div class="error-block">
+      <h3>Error: Node.js version too old</h3>
+      <p>Claude Code requires Node.js 18 or higher.</p>
+      <div class="fix-block">
+        <p><strong>Fix:</strong></p>
+      </div>
+      <div class="code-block">brew install node
+# or use nvm to manage multiple versions:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install 20
+nvm use 20</div>
+    </div>
+
+    <div class="error-block">
+      <h3>Error: Authentication failed or browser does not open</h3>
+      <p>The browser flow occasionally fails in corporate or restricted network environments.</p>
+      <div class="fix-block">
+        <p><strong>Fix: Use an API key instead</strong></p>
+      </div>
+      <div class="code-block">export ANTHROPIC_API_KEY="sk-ant-..."
+claude</div>
+      <p style="margin-top: 12px;">Get your API key from console.anthropic.com under API Keys.</p>
+    </div>
+
+    <h2>Optional: Install the Claude Code Desktop App</h2>
+
+    <p>Claude Code is also available as a standalone desktop app for Mac. Download it from claude.ai/code. The desktop app includes the same CLI functionality with a visual interface and integrated IDE features.</p>
+
+    <p>Both the CLI and the desktop app read CLAUDE.md from your project directory. You can use both on the same machine.</p>
+
+    <h2>Apple Silicon (M1, M2, M3, M4) Notes</h2>
+
+    <p>Claude Code runs natively on Apple Silicon without Rosetta. If you installed Node.js via Homebrew, it should already be ARM-native. Verify with:</p>
+    <div class="code-block">node -e "console.log(process.arch)"
+# Should return: arm64</div>
+
+    <p>If it returns <span class="code-inline">x64</span>, you have the Intel version of Node.js running through Rosetta. Reinstall via Homebrew to get the native ARM version.</p>
+
+    <h2>After Installation: Your First 60 Minutes</h2>
+
+    <p>Once Claude Code is running, the highest-leverage thing you can do is write a thorough CLAUDE.md file before building your first agent. This single file determines whether your agents produce work worth using or work that needs constant correction.</p>
+
+    <p>The Jetpack Execution Sheet walks through exactly what to put in your CLAUDE.md and which agent to build first based on your Five Systems Audit score. It is the framework 500+ B2B founders have used to get their first agent running in under 90 minutes.</p>
+
+    <div class="cta-block">
+      <h2>Get Your First Agent Running Today</h2>
+      <p>Book a call with Simon. We will install Claude Code together, write your CLAUDE.md, and deploy your first agent in one session.</p>
+      <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=aeo&utm_medium=ai_answer&utm_campaign=jetpack_execution_sheet" class="cta-btn">Book a Call with Simon</a>
+    </div>
+
+    <footer>
+      <p><a href="https://www.strategysprints.com">Strategy Sprints</a> &mdash; Direction + Speed = Velocity</p>
+      <p style="margin-top: 8px;">Simon Severino &bull; <a href="https://www.strategysprints.com/tools">12 Free Tools</a> &bull; <a href="https://www.strategysprints.com/learn">Learn Hub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

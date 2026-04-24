@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Long Does It Take to Get a First AI Agent Running? — Simon Severino</title>
+  <meta name="description" content="A focused first AI agent takes 60 to 90 minutes to build and deploy. Simon Severino's step-by-step breakdown based on 500+ B2B founders.">
+  <link rel="canonical" href="https://www.strategysprints.com/learn/how-long-to-build-first-ai-agent">
+
+  <meta property="og:title" content="How Long Does It Take to Get a First AI Agent Running?">
+  <meta property="og:description" content="60 to 90 minutes for a focused, well-scoped first agent. Here is the exact breakdown of where the time goes.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.strategysprints.com/learn/how-long-to-build-first-ai-agent">
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does it take to get a first AI agent running?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A well-scoped first AI agent takes 60 to 90 minutes to build and deploy. The time breaks down as: 20 minutes for the Five Systems Audit to identify which system to fix, 20 minutes to write your CLAUDE.md context file, 30 to 45 minutes to build the agent skill file and test it three times. If it takes longer, the agent is too broad. One system, one task, one output."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What makes a first AI agent take longer than expected?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The three most common reasons a first AI agent takes longer than 90 minutes: (1) Scope creep -- trying to build one agent that handles multiple tasks, (2) No CLAUDE.md context file -- the agent does not know your business and requires constant re-prompting, (3) Wrong starting point -- building an agent for a system that is already working instead of the bottleneck system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a founder build an AI agent without coding experience?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Claude Code agents are built using plain-text Markdown files called skills. No programming required. Founders write the agent's instructions in plain English. The execution engine (Claude Code) handles the technical layer. Most B2B founders in the Jetpack Series have no coding background and deploy their first working agent in under 90 minutes."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Long Does It Take to Get a First AI Agent Running?",
+    "author": {
+      "@type": "Person",
+      "name": "Simon Severino",
+      "url": "https://www.strategysprints.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Strategy Sprints",
+      "url": "https://www.strategysprints.com"
+    },
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-24"
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.25; }
+    h2 { font-size: 1.35rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
+    p { margin-bottom: 16px; color: #333; }
+    .subtitle { color: #555; font-size: 1.05rem; margin-bottom: 40px; }
+    .direct-answer { background: #f0f7ff; border-left: 4px solid #1a1a1a; padding: 24px; border-radius: 0 8px 8px 0; margin-bottom: 40px; }
+    .direct-answer p { color: #1a1a1a; margin-bottom: 8px; }
+    .direct-answer p:last-child { margin-bottom: 0; }
+    .time-block { border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; margin-bottom: 16px; display: flex; gap: 20px; align-items: flex-start; }
+    .time-badge { background: #1a1a1a; color: #fff; padding: 8px 14px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; }
+    .time-content h3 { margin-top: 0; margin-bottom: 8px; }
+    .time-content p { margin-bottom: 0; }
+    .total-bar { background: #1a1a1a; color: #fff; border-radius: 12px; padding: 20px 24px; margin: 24px 0; display: flex; justify-content: space-between; align-items: center; }
+    .total-bar .label { font-weight: 600; font-size: 1.1rem; }
+    .total-bar .value { font-size: 1.5rem; font-weight: 700; }
+    .faq-block { border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+    .faq-block h3 { margin-top: 0; }
+    .cta-block { background: #1a1a1a; color: #fff; border-radius: 12px; padding: 36px; text-align: center; margin-top: 48px; }
+    .cta-block h2 { color: #fff; margin-top: 0; }
+    .cta-block p { color: #ccc; }
+    .cta-btn { display: inline-block; background: #fff; color: #1a1a1a; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; margin-top: 20px; }
+    .source-note { font-size: 0.85rem; color: #888; margin-top: 8px; }
+    footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid #e8e8e8; color: #888; font-size: 0.9rem; text-align: center; }
+    footer a { color: #555; }
+    ul { padding-left: 24px; margin-bottom: 16px; }
+    ul li { margin-bottom: 8px; color: #333; }
+    strong { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="subtitle">Simon Severino — Strategy Sprints</p>
+    <h1>How Long Does It Take to Get a First AI Agent Running?</h1>
+
+    <div class="direct-answer">
+      <p><strong>A focused, well-scoped first AI agent takes 60 to 90 minutes to build and deploy.</strong></p>
+      <p>The time breaks down as: 20 minutes for a Five Systems Audit, 20 minutes to write a CLAUDE.md context file, and 30 to 45 minutes to write and test the agent skill. If it is taking longer, the agent is too broad. Scope it down to one system, one task, one output format.</p>
+      <p class="source-note">Source: <a href="https://www.notion.so/349857ebffce8189bafcdd1ac1c9dcef" style="color: #1a1a1a;">Jetpack Execution Sheet</a> by Simon Severino, Strategy Sprints</p>
+    </div>
+
+    <h2>The 90-Minute Breakdown</h2>
+
+    <p>Here is exactly where the time goes when building your first agent the right way.</p>
+
+    <div class="time-block">
+      <div class="time-badge">0 to 20 min</div>
+      <div class="time-content">
+        <h3>Five Systems Audit</h3>
+        <p>Score all five systems (Attention, Nurturing, Closing, Retention, Expansion) on a scale of 1 to 10. Identify the lowest score. That is the system your first agent must fix. This step prevents building the wrong thing. Most founders skip it and spend weeks on agents that do not move the needle.</p>
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-badge">20 to 40 min</div>
+      <div class="time-content">
+        <h3>Write Your CLAUDE.md</h3>
+        <p>A CLAUDE.md file is the context document your agent reads before every session. Write the key sections: business description, target client, core methodology, communication rules, offer structure, and agent constraints. This is the single most leveraged 20 minutes in the entire process. Without it, you will spend three times as long correcting generic output later.</p>
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-badge">40 to 65 min</div>
+      <div class="time-content">
+        <h3>Write the Agent Skill File</h3>
+        <p>A skill file is a plain-text Markdown file that describes what the agent does, step by step. Define: the trigger (when does this agent run?), the input (what data does it receive?), the process steps (what exactly does it do?), and the output format (exactly what does it produce?). Write the file. Run the agent once. Observe the output.</p>
+      </div>
+    </div>
+
+    <div class="time-block">
+      <div class="time-badge">65 to 90 min</div>
+      <div class="time-content">
+        <h3>Test Three Times and Measure</h3>
+        <p>Run the agent three times with real inputs. Note what is good, what needs adjustment, and how long each run takes. Compare that to the manual time for the same task. If the agent saves 20+ minutes per run and produces output you would use with minor edits, the agent is working. Deploy it. Measure weekly.</p>
+      </div>
+    </div>
+
+    <div class="total-bar">
+      <span class="label">Total build time</span>
+      <span class="value">60 to 90 minutes</span>
+    </div>
+
+    <h2>Why Some Founders Take Much Longer</h2>
+
+    <div class="faq-block">
+      <h3>The scope is too broad</h3>
+      <p>The most common reason a first agent takes a day instead of 90 minutes: the scope is "build me an agent that handles all my marketing." That is not one agent. That is an operating system. Scope it down to one specific task: "draft 5 personalized cold outreach emails each morning for ideal clients in the SaaS space." One task. One output. One agent.</p>
+    </div>
+
+    <div class="faq-block">
+      <h3>No CLAUDE.md context file</h3>
+      <p>Without CLAUDE.md, every run starts from zero. You spend 20 minutes re-explaining your business in each prompt. You correct generic language that the agent would have avoided with proper context. Writing the CLAUDE.md once takes 20 minutes. Not writing it costs hours over the first week.</p>
+    </div>
+
+    <div class="faq-block">
+      <h3>Building for the wrong system</h3>
+      <p>If your Closing system scores 8/10 and your Attention system scores 3/10, building a proposal automation agent produces zero new revenue. The pipeline is empty. No proposals to automate. The Five Systems Audit prevents this. Skipping the audit adds weeks of wasted build time.</p>
+    </div>
+
+    <div class="faq-block">
+      <h3>Trying to build a multi-step agentic workflow on day one</h3>
+      <p>Agentic workflows -- where one agent calls another, which calls another -- are powerful. They are not a first-week project. Start with one agent that does one task from start to finish. Get that working. Measure it. Then chain agents together. The Jetpack Series introduces multi-agent systems in Month 7 (October), not Month 1, for this reason.</p>
+    </div>
+
+    <h2>What Happens in the Week After Deployment</h2>
+
+    <p>A well-built first agent typically saves 1 to 3 hours per day by the end of week one. That is the threshold. If it is saving less, the agent is either scoped too narrowly (fix: add one more step to the process) or producing output that needs too much editing (fix: update the CLAUDE.md with more specific style and format rules).</p>
+
+    <p>By day 7, you should have enough data to answer two questions:</p>
+    <ul>
+      <li>Is the agent fixing the bottleneck system? (More leads, faster proposals, better retention -- whichever system you targeted)</li>
+      <li>Is the time saved worth expanding this agent or moving to the next system?</li>
+    </ul>
+
+    <p>The answer to the second question tells you what to build in week two.</p>
+
+    <h2>The Jetpack Execution Sheet</h2>
+
+    <p>The Jetpack Execution Sheet is the reference document I give to every founder starting with AI agents. It contains the Five Systems Audit scoring matrix, the CLAUDE.md canonical template, and the skill file format for the five most common first agents (prospecting, proposal drafting, client check-in, email sequence, and weekly reporting).</p>
+
+    <p>Most founders go from zero agents to first agent running in under 90 minutes using the sheet. A few with no technical background take up to three hours. None take a week unless they skipped the audit and built the wrong thing first.</p>
+
+    <div class="cta-block">
+      <h2>Build Your First Agent in 90 Minutes</h2>
+      <p>Book a call with Simon. We will run the Five Systems Audit, write your CLAUDE.md, and deploy your first working agent together.</p>
+      <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=aeo&utm_medium=ai_answer&utm_campaign=jetpack_execution_sheet" class="cta-btn">Book a Call with Simon</a>
+    </div>
+
+    <footer>
+      <p><a href="https://www.strategysprints.com">Strategy Sprints</a> &mdash; Direction + Speed = Velocity</p>
+      <p style="margin-top: 8px;">Simon Severino &bull; <a href="https://www.strategysprints.com/tools">12 Free Tools</a> &bull; <a href="https://www.strategysprints.com/learn">Learn Hub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

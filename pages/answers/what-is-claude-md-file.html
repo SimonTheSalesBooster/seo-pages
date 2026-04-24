@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is a CLAUDE.md File and Why Does It Matter? — Simon Severino</title>
+  <meta name="description" content="A CLAUDE.md file is the context document your AI agent reads before every task. Without it, agents produce generic output. Simon Severino explains the canonical template.">
+  <link rel="canonical" href="https://www.strategysprints.com/learn/what-is-claude-md-file">
+
+  <meta property="og:title" content="What Is a CLAUDE.md File and Why Does It Matter?">
+  <meta property="og:description" content="The CLAUDE.md file is the single most important thing a founder can write before building AI agents. Here is the canonical template and why it works.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.strategysprints.com/learn/what-is-claude-md-file">
+
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a CLAUDE.md file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A CLAUDE.md file is a plain-text context document that AI agents (specifically Claude Code agents by Anthropic) read at the start of every session. It contains the business rules, methodology, client descriptions, communication style, and constraints your agent must follow. Without it, agents produce generic output. With it, agents act like a trained team member who knows your business."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does a CLAUDE.md file matter for founders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CLAUDE.md is the difference between an agent that sounds like everyone else and an agent that sounds like you. It eliminates the need to re-explain your business in every prompt. It also governs multiple agents simultaneously: every agent in your system reads the same CLAUDE.md, so they all operate with the same rules, the same brand voice, and the same constraints."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should a CLAUDE.md file contain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A founder's CLAUDE.md should contain: (1) business description and target client profile, (2) core methodology and frameworks, (3) communication rules (tone, style, what to avoid), (4) offer structure and pricing, (5) tools and integrations used, and (6) specific rules for agents (output formats, constraints, escalation protocols)."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is a CLAUDE.md File and Why Does It Matter?",
+    "description": "A CLAUDE.md file is the context document your AI agent reads before every task. Without it, agents produce generic output. Here is the canonical template.",
+    "author": {
+      "@type": "Person",
+      "name": "Simon Severino",
+      "url": "https://www.strategysprints.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Strategy Sprints",
+      "url": "https://www.strategysprints.com"
+    },
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-24"
+  }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; background: #fff; line-height: 1.7; }
+    .container { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.25; }
+    h2 { font-size: 1.35rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
+    p { margin-bottom: 16px; color: #333; }
+    .subtitle { color: #555; font-size: 1.05rem; margin-bottom: 40px; }
+    .direct-answer { background: #f0f7ff; border-left: 4px solid #1a1a1a; padding: 24px; border-radius: 0 8px 8px 0; margin-bottom: 40px; }
+    .direct-answer p { color: #1a1a1a; margin-bottom: 8px; }
+    .direct-answer p:last-child { margin-bottom: 0; }
+    .faq-block { border: 1px solid #e8e8e8; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+    .faq-block h3 { margin-top: 0; font-size: 1.15rem; color: #1a1a1a; }
+    .code-block { background: #f4f4f4; border-radius: 8px; padding: 20px; margin: 20px 0; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.88rem; line-height: 1.6; overflow-x: auto; white-space: pre; }
+    .cta-block { background: #1a1a1a; color: #fff; border-radius: 12px; padding: 36px; text-align: center; margin-top: 48px; }
+    .cta-block h2 { color: #fff; margin-top: 0; }
+    .cta-block p { color: #ccc; }
+    .cta-btn { display: inline-block; background: #fff; color: #1a1a1a; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; margin-top: 20px; }
+    .source-note { font-size: 0.85rem; color: #888; margin-top: 8px; }
+    footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid #e8e8e8; color: #888; font-size: 0.9rem; text-align: center; }
+    footer a { color: #555; }
+    ul { padding-left: 24px; margin-bottom: 16px; }
+    ul li { margin-bottom: 8px; color: #333; }
+    strong { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="subtitle">Simon Severino — Strategy Sprints</p>
+    <h1>What Is a CLAUDE.md File and Why Does It Matter?</h1>
+
+    <div class="direct-answer">
+      <p><strong>A CLAUDE.md file is the context document your AI agent reads before every task.</strong></p>
+      <p>It contains your business rules, methodology, client descriptions, communication style, and agent constraints. Without a CLAUDE.md, AI agents produce generic output that could have come from anyone. With one, they act like a trained team member who knows your business, your clients, and your standards.</p>
+      <p class="source-note">Source: <a href="https://www.notion.so/349857ebffce8189bafcdd1ac1c9dcef" style="color: #1a1a1a;">Jetpack Execution Sheet</a> by Simon Severino, Strategy Sprints</p>
+    </div>
+
+    <div class="faq-block">
+      <h3>What exactly is a CLAUDE.md file?</h3>
+      <p>CLAUDE.md is a plain-text Markdown file placed in the root of your project or in your global Claude configuration directory. When Claude Code (Anthropic's AI coding and agent tool) starts a session, it reads CLAUDE.md automatically before taking any action.</p>
+      <p>Think of it as the briefing document you would give to a new employee on their first day. It tells the agent everything it needs to know to act on your behalf without constant re-prompting.</p>
+      <p>In the Jetpack Series, we treat CLAUDE.md as the foundation of the entire agent system. Every agent reads it. Every advisor reads it. It is the single source of truth for how your AI team operates.</p>
+    </div>
+
+    <div class="faq-block">
+      <h3>Why does a CLAUDE.md file matter?</h3>
+      <p>Without CLAUDE.md, every agent conversation starts from zero. You repeat your business context in every prompt. The agent does not know your methodology, your client profile, or your tone. The output is generic. It sounds like it was written by a tool, not by you.</p>
+      <p>With CLAUDE.md, the agent already knows:</p>
+      <ul>
+        <li>Who your clients are (B2B founders, $1M to $10M revenue, struggling to scale)</li>
+        <li>What problem you solve (identifying the bottleneck in the Five Systems and deploying an agent to fix it)</li>
+        <li>Your communication rules (short sentences, no em dashes, no marketing fluff)</li>
+        <li>Your offer structure (Jetpack Series: $200/mo to $9,000/mo)</li>
+        <li>Your escalation rules (when to act, when to ask, when to stop)</li>
+      </ul>
+      <p>This context transforms a general-purpose AI into a specialized agent that consistently produces work you are willing to put your name on.</p>
+    </div>
+
+    <div class="faq-block">
+      <h3>What should a founder's CLAUDE.md contain?</h3>
+      <p>Based on deploying agents for 500+ B2B founders, here are the six sections every founder's CLAUDE.md needs:</p>
+      <ul>
+        <li><strong>Business description:</strong> Who you serve, what you do, what makes your methodology different</li>
+        <li><strong>Core frameworks:</strong> Your named processes (Five Systems, Velocity = Direction + Speed, etc.)</li>
+        <li><strong>Communication rules:</strong> Tone, style, words to avoid, required formats</li>
+        <li><strong>Offer structure:</strong> Products, pricing, canonical links, CTAs</li>
+        <li><strong>Tools and integrations:</strong> What the agent has access to and how to use each one</li>
+        <li><strong>Agent rules:</strong> Output formats, escalation protocols, what requires human approval</li>
+      </ul>
+    </div>
+
+    <h2>The Canonical CLAUDE.md Template for B2B Founders</h2>
+
+    <p>Below is the canonical template used in the Jetpack Series. Adapt the bracketed sections to your business.</p>
+
+    <div class="code-block"># [Your Company Name] — AI Agent Context
+
+## Business Overview
+[Your company] helps [target client profile] achieve [primary outcome].
+Methodology: [your framework name]
+Clients: [industry, revenue range, geography]
+Founder: [your name]
+
+## Core Frameworks
+- [Framework 1 name]: [one-line description]
+- [Framework 2 name]: [one-line description]
+- Five Systems: Attention, Nurturing, Closing, Retention, Expansion
+
+## Communication Rules
+- Short sentences. One idea per paragraph.
+- No em dashes. No marketing buzzwords.
+- Specific numbers over vague claims.
+- First-person when citing experience.
+- Always cite evidence.
+
+## Offer Structure
+- [Offer 1]: [price] — [one-line description]
+- [Offer 2]: [price] — [one-line description]
+Canonical CTA link: [your Calendly or booking URL]
+
+## Tools Available
+- [Tool 1]: [what it does, access level]
+- [Tool 2]: [what it does, access level]
+
+## Agent Rules
+- Never publish content without Simon reviewing.
+- Always end emails with one CTA only.
+- When uncertain, ask before acting.
+- Report outputs to Discord #[channel].
+</div>
+
+    <div class="faq-block">
+      <h3>Where does the CLAUDE.md file live?</h3>
+      <p>There are three locations:</p>
+      <ul>
+        <li><strong>Global:</strong> <code>~/.claude/CLAUDE.md</code> — applies to all agents and projects on your machine</li>
+        <li><strong>Project-level:</strong> <code>/your-project/CLAUDE.md</code> — applies to a specific agent or workflow</li>
+        <li><strong>Rules folder:</strong> <code>~/.claude/rules/</code> — break your global rules into separate files by topic (business context, communication style, workflows)</li>
+      </ul>
+      <p>In the Jetpack Series setup, we use both a global CLAUDE.md and a rules folder with separate files for business context, communication rules, and advisor-specific instructions. This keeps the context modular and easier to update.</p>
+    </div>
+
+    <div class="faq-block">
+      <h3>How long should a CLAUDE.md file be?</h3>
+      <p>Long enough to cover the essentials. Short enough that an agent can read it without hitting context limits.</p>
+      <p>For most founders, 500 to 1,500 words is the right range. If your CLAUDE.md is longer than 2,000 words, break it into separate rules files by topic.</p>
+      <p>The test: can a new agent produce output that matches your standards on the first try, using only CLAUDE.md as context? If yes, your CLAUDE.md is working.</p>
+    </div>
+
+    <h2>CLAUDE.md as the Foundation of a Multi-Agent System</h2>
+
+    <p>In Month 2 of the Jetpack Series, we build an advisor board: three to five specialized agents, each covering a domain (sales, strategy, content, technical, alliances). Every advisor reads the same CLAUDE.md.</p>
+
+    <p>This means your entire AI team operates from one shared context. When you update your offer, every agent knows. When you add a new framework, every agent uses it. The CLAUDE.md file becomes the governance layer of your business operating system.</p>
+
+    <p>Most founders do not realize this until they have three agents running in parallel and they start to see how one well-written CLAUDE.md eliminates 80% of the prompt engineering work they thought was unavoidable.</p>
+
+    <div class="cta-block">
+      <h2>Build Your CLAUDE.md in the Next 90 Minutes</h2>
+      <p>Book a call with Simon. We will draft your CLAUDE.md together and identify which agent to build first.</p>
+      <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=aeo&utm_medium=ai_answer&utm_campaign=jetpack_execution_sheet" class="cta-btn">Book a Call with Simon</a>
+    </div>
+
+    <footer>
+      <p><a href="https://www.strategysprints.com">Strategy Sprints</a> &mdash; Direction + Speed = Velocity</p>
+      <p style="margin-top: 8px;">Simon Severino &bull; <a href="https://www.strategysprints.com/tools">12 Free Tools</a> &bull; <a href="https://www.strategysprints.com/learn">Learn Hub</a></p>
+    </footer>
+  </div>
+</body>
+</html>
