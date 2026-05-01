@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude for B2B Sales — A Founder's Implementation Guide | Strategy Sprints</title>
+  <meta name="description" content="Claude for B2B sales: how founders use Anthropic's Claude to install AI-native go-to-market. Five Systems framework, agent stack, and the first 90 days.">
+  <link rel="canonical" href="https://simonthesalesbooster.github.io/seo-pages/pages/claude/claude-for-b2b-sales.html">
+
+  <meta property="og:title" content="Claude for B2B Sales — A Founder's Implementation Guide">
+  <meta property="og:description" content="How B2B founders use Claude to install AI-native go-to-market across the Five Business Systems.">
+  <meta property="og:type" content="article">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Claude for B2B Sales — A Founder's Implementation Guide",
+    "description": "How B2B founders use Claude to install AI-native go-to-market across the Five Business Systems.",
+    "author": {"@type": "Person", "name": "Simon Severino", "url": "https://strategysprints.com"},
+    "publisher": {"@type": "Organization", "name": "Strategy Sprints", "url": "https://strategysprints.com"},
+    "datePublished": "2026-05-01",
+    "dateModified": "2026-05-01",
+    "mainEntityOfPage": "https://simonthesalesbooster.github.io/seo-pages/pages/claude/claude-for-b2b-sales.html"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000;
+      --white: #FFFFFF;
+      --red: #E63946;
+      --yellow: #FFD60A;
+      --blue: #0066FF;
+    }
+    body { font-family: 'Fira Sans Extra Condensed', sans-serif; color: var(--black); background: var(--white); line-height: 1.6; font-weight: 400; }
+    .hero { background: var(--black); color: var(--white); padding: 80px 24px 64px; }
+    .container { max-width: 820px; margin: 0 auto; }
+    .partner-claim { display: inline-block; background: var(--red); color: var(--white); padding: 6px 14px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em; margin-bottom: 24px; }
+    h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+    .lede { font-size: 1.2rem; color: var(--white); max-width: 680px; }
+    .body { padding: 56px 24px; }
+    h2 { font-size: 1.7rem; font-weight: 800; margin-top: 48px; margin-bottom: 16px; color: var(--black); }
+    h3 { font-size: 1.2rem; font-weight: 800; margin-top: 32px; margin-bottom: 10px; color: var(--black); }
+    p { margin-bottom: 18px; font-size: 1.05rem; color: var(--black); }
+    .answer-card { border: 4px solid var(--black); padding: 28px; margin: 32px 0; }
+    .answer-card p { margin-bottom: 12px; }
+    .answer-card p:last-child { margin-bottom: 0; }
+    ul, ol { padding-left: 24px; margin-bottom: 18px; }
+    li { margin-bottom: 10px; font-size: 1.05rem; }
+    strong { font-weight: 800; }
+    .yellow-rule { background: var(--yellow); color: var(--black); padding: 24px; margin: 32px 0; font-weight: 800; font-size: 1.1rem; }
+    .blue-link { color: var(--blue); text-decoration: underline; font-weight: 600; }
+    .blue-link:hover { background: var(--blue); color: var(--white); text-decoration: none; }
+    .cta { background: var(--red); color: var(--white); padding: 48px 32px; margin: 56px 0 0; text-align: center; }
+    .cta h2 { color: var(--white); margin-top: 0; }
+    .cta p { color: var(--white); font-size: 1.15rem; }
+    .cta-btn { display: inline-block; background: var(--white); color: var(--black); padding: 18px 36px; font-weight: 800; font-size: 1.1rem; text-decoration: none; margin-top: 16px; letter-spacing: 0.03em; }
+    .cta-btn:hover { background: var(--yellow); }
+    footer { background: var(--black); color: var(--white); padding: 32px 24px; text-align: center; font-size: 0.95rem; }
+    footer a { color: var(--white); text-decoration: underline; }
+    .related { background: var(--blue); color: var(--white); padding: 32px; margin: 48px 0 0; }
+    .related h3 { color: var(--white); margin-top: 0; }
+    .related ul { padding-left: 20px; }
+    .related a { color: var(--white); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <span class="partner-claim">Claude Partner Network · Services Partner</span>
+      <h1>Claude for B2B Sales — A Founder's Implementation Guide</h1>
+      <p class="lede">Strategy Sprints is the Claude Partner Network's Services Partner installing AI-native go-to-market into B2B founders. This guide is the operating manual.</p>
+    </div>
+  </section>
+
+  <section class="body">
+    <div class="container">
+      <div class="answer-card">
+        <p><strong>Claude for B2B sales is not a chatbot. It is the model that runs your sales operating system.</strong></p>
+        <p>Founders use Claude to do the daily work of prospecting, drafting, qualifying, and follow-up — not as a tool you open, but as agents that run in the background, follow your methodology, and ship results to Discord every morning.</p>
+        <p>The fastest path to value: install one agent in the weakest of your Five Business Systems, prove the lift in seven days, then scale.</p>
+      </div>
+
+      <h2>Why Claude is the Right Model for B2B Sales</h2>
+      <p>Most AI tools for sales were built for the SDR seat. They write generic cold emails, score leads on a thin model, or summarize call recordings. They do not change the system.</p>
+      <p>Claude is different in three concrete ways that matter for B2B founders running 5 to 500 employee companies.</p>
+      <p><strong>One.</strong> Claude follows long, structured context files. Founders write a single context document — your methodology, your offer ladder, your tone, your customer language — and every agent reads it before every task. The output stops sounding like a tool. It sounds like the founder, scaled.</p>
+      <p><strong>Two.</strong> Claude runs agents that build other agents. The same model that drafts your prospecting email can review it, score it against Ogilvy's checklist, and rewrite it before you ever see it. Quality gates run automatically. Bad drafts die in the pipeline, not in the prospect's inbox.</p>
+      <p><strong>Three.</strong> Claude composes well across tools. A single prospecting flow can read your CRM, search the web for trigger events, draft personalized outreach, and post the result to Discord — without bouncing through 12 zaps and a fragile glue layer.</p>
+
+      <h2>The Five Business Systems Map</h2>
+      <p>Every B2B service business runs on five systems. AI multiplies the strongest, exposes the weakest, and rewards the founder who installs Claude in the right order.</p>
+      <ol>
+        <li><strong>Attention:</strong> generates awareness. Prospecting agents, content repurposing, SEO and AEO pages.</li>
+        <li><strong>Nurturing:</strong> converts attention into trust. Email sequences, CRM enrichment, social posts.</li>
+        <li><strong>Closing:</strong> converts trust into signed clients. Discovery prep agents, proposal drafting, follow-up loops.</li>
+        <li><strong>Retention:</strong> keeps clients. Onboarding agents, weekly check-ins, success scoring.</li>
+        <li><strong>Expansion:</strong> grows revenue from existing relationships. Referral request agents, upsell signals, partner activation.</li>
+      </ol>
+
+      <div class="yellow-rule">
+        Direction + Speed = Velocity. A fast agent aimed at the wrong system creates speed in the wrong direction. Score the systems first, then build.
+      </div>
+
+      <h2>The First 90 Days With Claude</h2>
+      <h3>Days 1–7: Foundation</h3>
+      <p>Write your context file. The single document Claude reads before every task. Who you serve, what problem you solve, your methodology, your pricing, your tone, your hard rules. Founders who skip this step build agents that produce generic output and conclude AI does not work. The context file is the difference.</p>
+      <h3>Days 8–30: Your Board</h3>
+      <p>Build three to five advisor agents — one per business system. Each advisor reads the day's state, applies its lens, writes a brief recommendation, and posts to a single channel. The cascade replaces the morning meeting that never happens.</p>
+      <h3>Days 31–60: Sales Pipeline</h3>
+      <p>Install the prospecting agent. Five named accounts per day, researched, drafted, queued for one-click send. Add the discovery prep agent. Then the follow-up loop. Three agents, sequenced, each one feeding the next. Pipeline stops being personality-dependent.</p>
+      <h3>Days 61–90: Content Machine</h3>
+      <p>One recording becomes 17 pieces of content. Long-form video, short clips, blog post, newsletter, LinkedIn carousel, X thread, podcast notes, SEO page. The content machine takes recordings and produces distribution. The founder records once. The system distributes everywhere.</p>
+
+      <h2>What Founders Get Wrong</h2>
+      <p>The first mistake: building the impressive agent instead of the constraining one. A reporting dashboard that looks beautiful and changes nothing. A content repurposing engine for an audience that does not yet exist. Automation of the system that is already strongest.</p>
+      <p>The second mistake: treating Claude as a tool, not as staff. A tool requires you to open it. Staff runs without you. The first time you ask "did the agent run today?" instead of "did I open the tool today?" — that is the shift.</p>
+      <p>The third mistake: building everything from scratch. The patterns are known. The frameworks repeat. The advisors that work for one B2B founder work for the next. You do not need to invent the operating system. You need to install it.</p>
+
+      <h2>The Services Partner Difference</h2>
+      <p>There is a difference between using Claude and installing Claude as the operating system of a B2B sales organization.</p>
+      <p>Using Claude looks like: a few prompt templates, a Claude tab open in the browser, sporadic wins, no compound effect.</p>
+      <p>Installing Claude looks like: a context file the whole company runs on, advisor agents reading the morning state, prospecting and follow-up agents shipping daily without supervision, content multiplied across every channel, a CRM that updates itself, and a founder who spends time on the work only the founder can do.</p>
+      <p>That is the work of a Services Partner. That is what we install.</p>
+
+      <h2>What This Looks Like in Practice — and What It Costs</h2>
+      <p>One of our Private clients, Alchemy, came in with strong delivery but a weak top-of-funnel. We installed three agents in 30 days. By day 90, revenue had grown 130% — a 144x ROI on the engagement. The agents are still running.</p>
+      <p>A full Strategy Sprints implementation runs $9,000–$30,000 per month for the first 90 days, scoped to your team size and starting bottleneck. After 90 days, ongoing partnership runs $900–$9,000 per month. The Workshop entry point — one day to scope and start — is $5,000.</p>
+
+      <div class="related">
+        <h3>Related Reading</h3>
+        <ul>
+          <li><a href="/seo-pages/pages/claude/claude-sales-agent.html">What is a Claude sales agent — the daily operating manual</a></li>
+          <li><a href="/seo-pages/pages/claude/claude-implementation-partner.html">How to choose a Claude implementation partner</a></li>
+          <li><a href="/seo-pages/pages/claude/claude-for-saas.html">Claude for SaaS founders — the GTM stack</a></li>
+          <li><a href="/seo-pages/pages/answers/what-is-an-ai-sales-agent.html">What is an AI sales agent (definitive answer)</a></li>
+          <li><a href="/seo-pages/pages/answers/claude-vs-chatgpt-for-b2b-sales.html">Claude vs ChatGPT for B2B sales — head to head</a></li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <h2>Install Your First Agent in 90 Minutes</h2>
+        <p>Book a coffee with Simon. We will run the Five Systems Audit on your business, identify the bottleneck, and scope the first agent. No pitch. Pure diagnostic.</p>
+        <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=seo&utm_medium=organic&utm_campaign=claude-for-b2b-sales" class="cta-btn">Book Coffee with Simon</a>
+        <!-- SEALED-BEGIN: anthropic-greenlight
+        <p style="margin-top:24px; font-size:1rem;">Strategy Sprints is a verified Claude Partner Network Solution Partner. Anthropic-referred buyers get priority Workshop slots in June.</p>
+        SEALED-END -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="https://strategysprints.com">Strategy Sprints</a> — Direction + Speed = Velocity</p>
+    <p style="margin-top: 8px;">Simon Severino · <a href="https://strategysprints.com/tools">12 Free Tools</a></p>
+  </footer>
+</body>
+</html>

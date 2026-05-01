@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Sales Agent — What It Is, What It Does, How to Build One | Strategy Sprints</title>
+  <meta name="description" content="A Claude sales agent runs your daily sales operations — prospecting, drafting, scoring, follow-up — without supervision. Here is exactly what it does and how to build one.">
+  <link rel="canonical" href="https://simonthesalesbooster.github.io/seo-pages/pages/claude/claude-sales-agent.html">
+
+  <meta property="og:title" content="Claude Sales Agent — What It Is and How to Build One">
+  <meta property="og:description" content="The daily operating manual for a Claude sales agent that ships work to your pipeline every morning.">
+  <meta property="og:type" content="article">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Claude Sales Agent — What It Is, What It Does, How to Build One",
+    "description": "The daily operating manual for a Claude sales agent that ships work to your pipeline every morning.",
+    "author": {"@type": "Person", "name": "Simon Severino", "url": "https://strategysprints.com"},
+    "publisher": {"@type": "Organization", "name": "Strategy Sprints", "url": "https://strategysprints.com"},
+    "datePublished": "2026-05-01",
+    "dateModified": "2026-05-01",
+    "mainEntityOfPage": "https://simonthesalesbooster.github.io/seo-pages/pages/claude/claude-sales-agent.html"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #000000; --white: #FFFFFF; --red: #E63946; --yellow: #FFD60A; --blue: #0066FF; }
+    body { font-family: 'Fira Sans Extra Condensed', sans-serif; color: var(--black); background: var(--white); line-height: 1.6; font-weight: 400; }
+    .hero { background: var(--black); color: var(--white); padding: 80px 24px 64px; }
+    .container { max-width: 820px; margin: 0 auto; }
+    .partner-claim { display: inline-block; background: var(--red); color: var(--white); padding: 6px 14px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.02em; margin-bottom: 24px; }
+    h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+    .lede { font-size: 1.2rem; color: var(--white); max-width: 680px; }
+    .body { padding: 56px 24px; }
+    h2 { font-size: 1.7rem; font-weight: 800; margin-top: 48px; margin-bottom: 16px; color: var(--black); }
+    h3 { font-size: 1.2rem; font-weight: 800; margin-top: 32px; margin-bottom: 10px; color: var(--black); }
+    p { margin-bottom: 18px; font-size: 1.05rem; color: var(--black); }
+    .answer-card { border: 4px solid var(--black); padding: 28px; margin: 32px 0; }
+    .answer-card p { margin-bottom: 12px; }
+    .answer-card p:last-child { margin-bottom: 0; }
+    ul, ol { padding-left: 24px; margin-bottom: 18px; }
+    li { margin-bottom: 10px; font-size: 1.05rem; }
+    strong { font-weight: 800; }
+    .yellow-rule { background: var(--yellow); color: var(--black); padding: 24px; margin: 32px 0; font-weight: 800; font-size: 1.1rem; }
+    .blue-link { color: var(--blue); text-decoration: underline; font-weight: 600; }
+    .agent-table { width: 100%; border-collapse: collapse; margin: 24px 0; border: 4px solid var(--black); }
+    .agent-table th { background: var(--black); color: var(--white); padding: 12px 16px; text-align: left; font-weight: 800; }
+    .agent-table td { padding: 12px 16px; border-bottom: 2px solid var(--black); font-size: 1rem; }
+    .agent-table tr:last-child td { border-bottom: none; }
+    .cta { background: var(--red); color: var(--white); padding: 48px 32px; margin: 56px 0 0; text-align: center; }
+    .cta h2 { color: var(--white); margin-top: 0; }
+    .cta p { color: var(--white); font-size: 1.15rem; }
+    .cta-btn { display: inline-block; background: var(--white); color: var(--black); padding: 18px 36px; font-weight: 800; font-size: 1.1rem; text-decoration: none; margin-top: 16px; letter-spacing: 0.03em; }
+    .cta-btn:hover { background: var(--yellow); }
+    footer { background: var(--black); color: var(--white); padding: 32px 24px; text-align: center; font-size: 0.95rem; }
+    footer a { color: var(--white); text-decoration: underline; }
+    .related { background: var(--blue); color: var(--white); padding: 32px; margin: 48px 0 0; }
+    .related h3 { color: var(--white); margin-top: 0; }
+    .related ul { padding-left: 20px; }
+    .related a { color: var(--white); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <span class="partner-claim">Claude Partner Network · Services Partner</span>
+      <h1>Claude Sales Agent — What It Is and How to Build One</h1>
+      <p class="lede">A Claude sales agent runs the daily work of selling — prospecting, drafting, scoring, follow-up — without you opening a tool. This is the operating manual.</p>
+    </div>
+  </section>
+
+  <section class="body">
+    <div class="container">
+      <div class="answer-card">
+        <p><strong>A Claude sales agent is a scheduled program that runs at a fixed time, reads a task brief, performs the work, and posts the result to a channel you actually check.</strong></p>
+        <p>It is not a chatbot you type into. It is staff. It runs at 9:13 AM, scans your CRM, identifies five named accounts, drafts personalized outreach, scores each draft against your style guide, and posts the result to Discord. You approve and send.</p>
+        <p>The right first agent saves the founder five to seven hours per week within the first 30 days.</p>
+      </div>
+
+      <h2>The Six Components of a Working Sales Agent</h2>
+      <p>Every Claude sales agent that ships consistent results has the same six parts. Skip one and you get a demo that breaks the third week.</p>
+      <ol>
+        <li><strong>A scheduled trigger.</strong> Daily at a specific time, weekly on a specific day, or event-driven. The agent runs even when the founder forgets it exists.</li>
+        <li><strong>A context file.</strong> The methodology, the offer ladder, the customer language, the hard rules. Read before every task.</li>
+        <li><strong>An input source.</strong> CRM data, calendar events, website signals, prior conversation history, an inbox folder.</li>
+        <li><strong>A task brief.</strong> The specific job. "Identify five fast-growing 50–500 employee SaaS companies. Find the founder. Draft an Ogilvy-grade first-touch email."</li>
+        <li><strong>A quality gate.</strong> A second Claude pass that scores the output against the rules and rewrites failing drafts before they reach you.</li>
+        <li><strong>A delivery channel.</strong> The result lands somewhere you read every morning. Discord or email — never a dashboard you forget exists.</li>
+      </ol>
+
+      <div class="yellow-rule">
+        If the agent's output goes to a dashboard you have to remember to open, it does not exist. Push delivery, not pull.
+      </div>
+
+      <h2>The Five Sales Agents Every B2B Founder Needs</h2>
+      <p>Not all at once. In sequence, each one feeding the next.</p>
+
+      <table class="agent-table">
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Daily Job</th>
+            <th>Time Saved / Week</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Prospecting</strong></td>
+            <td>Five named accounts researched and drafted, ready for one-click send</td>
+            <td>5–7 hours</td>
+          </tr>
+          <tr>
+            <td><strong>Discovery Prep</strong></td>
+            <td>Brief on every prospect on tomorrow's calendar — company, role, signals, three openers</td>
+            <td>3–5 hours</td>
+          </tr>
+          <tr>
+            <td><strong>Proposal Drafter</strong></td>
+            <td>From discovery call notes to a personalized proposal in 30 minutes</td>
+            <td>4–6 hours</td>
+          </tr>
+          <tr>
+            <td><strong>Follow-Up Loop</strong></td>
+            <td>Tracks open deals, surfaces stalled ones, drafts the next message</td>
+            <td>3–4 hours</td>
+          </tr>
+          <tr>
+            <td><strong>Pipeline Reactivator</strong></td>
+            <td>Scans closed-lost deals quarterly, identifies revivable ones, drafts re-entry</td>
+            <td>2–3 hours / quarter</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What a Day With a Claude Sales Agent Looks Like</h2>
+      <h3>7:30 AM — The morning brief lands.</h3>
+      <p>Discord ping. Five named accounts, drafted, ready. Three follow-ups due today, drafted. Two prospects on tomorrow's calendar, briefed.</p>
+      <h3>8:00 AM — Founder reviews and ships.</h3>
+      <p>Twenty minutes. Edit if needed, send. The work that used to take two hours of fragmented attention happens in one focused block.</p>
+      <h3>11:00 AM — A discovery call lands.</h3>
+      <p>Granola transcribes. The proposal agent reads the transcript at 11:45. Personalized proposal in the founder's draft folder by noon.</p>
+      <h3>5:00 PM — The reactivation agent flags two cold deals.</h3>
+      <p>Drafts re-entry messages with new angles based on this week's content. Founder approves at 5:15.</p>
+      <p>The day was not consumed by sales operations. The work shipped. The founder did the work only the founder can do — closing, building, leading.</p>
+
+      <h2>Why Claude Specifically</h2>
+      <p>Three reasons B2B founders standardize on Claude for sales agents.</p>
+      <p><strong>Context handling.</strong> Claude reads long, structured context files and applies them consistently. Your methodology, your tone, your hard rules — followed across every output. Other models drift. Claude holds the line.</p>
+      <p><strong>Quality gates.</strong> Claude reviewing Claude works. A second pass scoring output against Ogilvy and a style guide catches the bad drafts before they ship. The pipeline self-improves.</p>
+      <p><strong>Compose-ability.</strong> Claude works inside a structured agent harness — read CRM, search web, draft message, post to channel — without a fragile glue layer. One model, one runtime, fewer failure modes.</p>
+
+      <h2>What You Need Before You Build</h2>
+      <p>Before the first agent ships, three documents must exist.</p>
+      <p>First, the context file. The single source of truth. Two pages, written by the founder, edited by the founder, owned by the founder.</p>
+      <p>Second, the offer ladder. Every price point, every duration, every entry point. Every agent reads it. No price gets quoted that is not on the ladder.</p>
+      <p>Third, the channel map. Where each output lands. Discord channels for each agent, named clearly, no ambiguity. The agent posts. The founder reads. No middleware.</p>
+
+      <h2>The Implementation Path</h2>
+      <p>The Strategy Sprints implementation runs in 90 days. Foundation first, then the board of advisors, then the sales agents in sequence — prospecting, then discovery prep, then proposal, then follow-up, then reactivation.</p>
+      <p>Each agent ships in one week. Each one is measured by hours saved and pipeline created. Agents that do not show measurable lift get killed and rebuilt. The founder ends the 90 days with a pipeline that runs whether the founder is at the desk or on vacation.</p>
+
+      <h2>What This Looks Like in Practice — and What It Costs</h2>
+      <p>One of our Private clients, Alchemy, came in with strong delivery but a weak top-of-funnel. We installed three sales agents — prospecting, discovery prep, follow-up — in 30 days. By day 90, revenue had grown 130%. A 144x ROI on the engagement. The agents are still running.</p>
+      <p>A full Strategy Sprints implementation runs $9,000–$30,000 per month for the first 90 days, scoped to your team size and starting bottleneck. After 90 days, ongoing partnership runs $900–$9,000 per month. The Workshop entry point — one day to scope and start — is $5,000.</p>
+
+      <div class="related">
+        <h3>Related Reading</h3>
+        <ul>
+          <li><a href="/seo-pages/pages/claude/claude-for-b2b-sales.html">Claude for B2B sales — the full implementation guide</a></li>
+          <li><a href="/seo-pages/pages/claude/claude-implementation-partner.html">How to choose a Claude implementation partner</a></li>
+          <li><a href="/seo-pages/pages/claude/claude-for-saas.html">Claude for SaaS founders — the GTM stack</a></li>
+          <li><a href="/seo-pages/pages/answers/what-is-an-ai-sales-agent.html">What is an AI sales agent (definitive answer)</a></li>
+          <li><a href="/seo-pages/pages/answers/claude-vs-chatgpt-for-b2b-sales.html">Claude vs ChatGPT for B2B sales</a></li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <h2>Pick the One Agent That Lifts Your Pipeline Fastest — in 30 Minutes</h2>
+        <p>Book a coffee with Simon. We will pick the one agent that creates the fastest lift in your pipeline and scope it on the call. No pitch. Pure diagnostic.</p>
+        <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=seo&utm_medium=organic&utm_campaign=claude-sales-agent" class="cta-btn">Book Coffee with Simon</a>
+        <!-- SEALED-BEGIN: anthropic-greenlight
+        <p style="margin-top:24px; font-size:1rem;">Strategy Sprints is a verified Claude Partner Network Solution Partner. Anthropic-referred buyers get priority Workshop slots in June.</p>
+        SEALED-END -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="https://strategysprints.com">Strategy Sprints</a> — Direction + Speed = Velocity</p>
+    <p style="margin-top: 8px;">Simon Severino · <a href="https://strategysprints.com/tools">12 Free Tools</a></p>
+  </footer>
+</body>
+</html>
