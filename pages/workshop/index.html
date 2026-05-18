@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    NOINDEX UNTIL Wed 2026-05-20 18:00 V.
+    Greg S3 publish-or-shelve gate:
+      08:00 V — check Notion "Workshop LP" status + HEAD-curl the canonical workshop path on the main domain.
+      18:00 V — if Michelle has shipped, KEEP THIS NOINDEX (page shelves).
+              — if Michelle has NOT shipped, REMOVE the meta tag below, push, post #pipeline.
+    Remove the <meta name="robots"> line below and the <meta name="googlebot"> line to flip live.
+  -->
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="googlebot" content="noindex,nofollow">
+
+  <title>Jetpack Workshop — One Agent Shipped in One Day | Strategy Sprints</title>
+  <meta name="description" content="One-day Jetpack Workshop with Simon Severino. Walk out at 5pm with a production AI agent running inside your business, a prospecting workflow sending from your inbox, and one revenue lever moving. $5,000. Vienna or Zoom.">
+  <link rel="canonical" href="https://simonthesalesbooster.github.io/seo-pages/pages/workshop/">
+
+  <meta property="og:title" content="Jetpack Workshop — One Agent Shipped in One Day">
+  <meta property="og:description" content="By 5pm you walk out with a working AI agent inside your business — not a deck about one. $5,000. One day. Vienna or Zoom.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simonthesalesbooster.github.io/seo-pages/pages/workshop/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Strategy Sprints",
+    "url": "https://strategysprints.com",
+    "founder": {"@type": "Person", "name": "Simon Severino"},
+    "description": "Strategy Sprints is the Claude Partner Network's Services Partner installing AI-native go-to-market into B2B founders.",
+    "sameAs": [
+      "https://www.linkedin.com/in/simonseverino/",
+      "https://www.youtube.com/@salesshow"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Jetpack Workshop",
+    "description": "One-day intensive with Simon Severino. By 5pm attendees leave with a production AI agent running inside their business, a prospecting workflow sending from their inbox, and one revenue lever measurably moving.",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": [
+      {
+        "@type": "Place",
+        "name": "Vienna",
+        "address": {"@type": "PostalAddress", "addressLocality": "Vienna", "addressCountry": "AT"}
+      },
+      {
+        "@type": "VirtualLocation",
+        "url": "https://zoom.us/"
+      }
+    ],
+    "organizer": {"@type": "Organization", "name": "Strategy Sprints", "url": "https://strategysprints.com"},
+    "performer": {"@type": "Person", "name": "Simon Severino"},
+    "offers": {
+      "@type": "Offer",
+      "price": "5000",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://calendly.com/simonseverino/coffee-with-simon",
+      "validFrom": "2026-05-18"
+    },
+    "startDate": "2026-05-18",
+    "endDate": "2026-12-31"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an agent?",
+        "acceptedAnswer": {"@type": "Answer", "text": "An agent is a small program that does one repeatable job for you — like researching five prospects every morning, drafting outreach, and posting the draft to your phone before 8am. It runs without you opening anything."}
+      },
+      {
+        "@type": "Question",
+        "name": "What do I leave the Jetpack Workshop with?",
+        "acceptedAnswer": {"@type": "Answer", "text": "A production agent running inside your business. A prospecting workflow sending from your inbox. A revenue lever you can measure by Friday. Code that runs without you — not slides about code that might."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Workshop in-person or remote?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Both work. In-person in Vienna or Zoom from your office. Same outcome either way."}
+      },
+      {
+        "@type": "Question",
+        "name": "Who is the Workshop for?",
+        "acceptedAnswer": {"@type": "Answer", "text": "B2B founders running 5 to 500 employee companies who want AI inside the business, not on top of it. Bring up to three people — your COO, your head of sales, your operator."}
+      },
+      {
+        "@type": "Question",
+        "name": "What if I can't build the agent on the day?",
+        "acceptedAnswer": {"@type": "Answer", "text": "You don't build alone. Simon and the advisor agents ship the first agent together with you, before you leave. The afternoon is implementation, not theory."}
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000;
+      --white: #FFFFFF;
+      --red:   #E63946;
+      --yellow:#FFD60A;
+      --blue:  #0066FF;
+    }
+    html, body { font-family: 'Fira Sans Extra Condensed', sans-serif; color: var(--black); background: var(--white); line-height: 1.55; font-weight: 400; }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+    /* HERO — Lena direction: outdoor landscape feel, ancient + AI, JETPACK WORKSHOP bottom-frame in Fira Sans Condensed Bold.
+       Placeholder hero uses CSS+SVG landscape. Lena: swap .hero-art for a real Simon-outdoor-standing photo when ready. */
+    .hero {
+      position: relative;
+      background: linear-gradient(180deg, #07142b 0%, #0d2347 35%, #1b3361 60%, #2c4574 75%, #5a7aa6 88%, #c9d5e6 100%);
+      color: var(--white);
+      padding: 56px 0 0;
+      overflow: hidden;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-art { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; pointer-events: none; }
+    .hero-art svg { width: 100%; height: 100%; display: block; }
+    .hero-top { position: relative; z-index: 2; }
+    .partner-claim {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      padding: 7px 14px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .partner-sentence {
+      max-width: 720px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      opacity: 0.92;
+      margin-bottom: 36px;
+    }
+    h1.hero-headline {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+      max-width: 880px;
+    }
+    .hero-sub {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      max-width: 680px;
+      color: var(--white);
+      opacity: 0.95;
+      margin-bottom: 28px;
+    }
+    .hero-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-bottom: 60px; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      padding: 18px 30px;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 0;
+    }
+    .btn-primary:hover { background: var(--yellow); color: var(--black); }
+    .price-flag { font-weight: 800; color: var(--white); font-size: 1.05rem; letter-spacing: 0.04em; }
+    .price-flag small { font-weight: 400; opacity: 0.85; }
+
+    .hero-bottom-overlay {
+      position: relative;
+      z-index: 2;
+      padding-bottom: 28px;
+      padding-top: 36px;
+    }
+    .jetpack-overlay {
+      font-weight: 800;
+      font-size: clamp(2.1rem, 7vw, 5.6rem);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      color: var(--white);
+      text-shadow: 0 2px 28px rgba(0,0,0,0.45);
+      margin-bottom: 6px;
+    }
+    .ai-tag {
+      display: inline-block;
+      background: var(--white);
+      color: var(--black);
+      padding: 6px 12px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* PROOF BAND */
+    .proof-band { background: var(--black); color: var(--white); padding: 36px 0; }
+    .proof-band .container { display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; }
+    .proof-band .label { display: inline-block; background: var(--yellow); color: var(--black); padding: 4px 10px; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .proof-band .body { font-size: 1.15rem; font-weight: 600; }
+    .proof-band .body strong { color: var(--yellow); }
+
+    /* SINGLE-SENTENCE BAND */
+    .single-sentence { background: var(--white); color: var(--black); padding: 56px 0; text-align: center; border-bottom: 2px solid var(--black); }
+    .single-sentence p { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 800; line-height: 1.15; max-width: 820px; margin: 0 auto; }
+    .single-sentence em { font-style: normal; color: var(--red); }
+
+    /* SIGNATURE MOVE */
+    .signature { background: var(--yellow); color: var(--black); padding: 48px 0; }
+    .signature .container { max-width: 820px; }
+    .signature h2 { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+    .signature p { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+
+    /* OUTCOMES */
+    section.body-section { padding: 64px 0; }
+    section.body-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+    .outcomes { list-style: none; padding: 0; margin: 24px 0 0; }
+    .outcomes li {
+      padding: 22px 28px;
+      border: 4px solid var(--black);
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex; gap: 18px; align-items: flex-start;
+    }
+    .outcomes li .marker { background: var(--red); color: var(--white); width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+
+    /* PRICING */
+    .pricing { background: var(--black); color: var(--white); padding: 64px 0; }
+    .pricing h2 { color: var(--white); }
+    .price-row { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin: 18px 0 22px; }
+    .price-row .amount { font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; line-height: 1; color: var(--yellow); }
+    .price-row .terms { font-size: 1.1rem; font-weight: 600; opacity: 0.92; }
+    .pricing .includes { font-size: 1.1rem; max-width: 720px; margin-bottom: 30px; }
+    .pricing .velocity { display: inline-block; border: 3px solid var(--yellow); color: var(--yellow); padding: 10px 18px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 32px; }
+    .pricing .btn-primary { background: var(--yellow); color: var(--black); }
+    .pricing .btn-primary:hover { background: var(--white); }
+
+    /* BRING / WE BRING */
+    .bring { padding: 64px 0; background: var(--white); border-top: 2px solid var(--black); border-bottom: 2px solid var(--black); }
+    .bring-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; }
+    @media (max-width: 720px) { .bring-grid { grid-template-columns: 1fr; } }
+    .bring-card { padding: 28px; border: 4px solid var(--black); }
+    .bring-card h3 { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+    .bring-card.you h3 { color: var(--red); }
+    .bring-card.we { background: var(--black); color: var(--white); }
+    .bring-card.we h3 { color: var(--yellow); }
+    .bring-card ul { list-style: none; padding: 0; }
+    .bring-card li { padding: 8px 0; font-size: 1.05rem; font-weight: 600; }
+    .bring-card li:before { content: "→ "; font-weight: 800; }
+
+    /* FAQ */
+    .faq { padding: 64px 0; }
+    .faq h2 { margin-bottom: 24px; }
+    details { border: 3px solid var(--black); padding: 18px 22px; margin-bottom: 12px; cursor: pointer; }
+    details[open] { background: var(--yellow); }
+    summary { font-weight: 800; font-size: 1.1rem; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary:after { content: " +"; float: right; font-weight: 800; }
+    details[open] summary:after { content: " ×"; }
+    details p { margin-top: 14px; font-size: 1.05rem; font-weight: 500; }
+
+    /* CTA FINAL */
+    .cta-final { background: var(--red); color: var(--white); padding: 72px 0; text-align: center; }
+    .cta-final h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); margin-bottom: 14px; line-height: 1.1; }
+    .cta-final p { font-size: 1.15rem; margin-bottom: 24px; opacity: 0.95; }
+    .cta-final .btn-primary { background: var(--white); color: var(--black); }
+    .cta-final .btn-primary:hover { background: var(--yellow); }
+
+    /* FOOTER */
+    footer { background: var(--black); color: var(--white); padding: 36px 0; text-align: center; font-size: 0.95rem; }
+    footer a { color: var(--white); text-decoration: underline; margin: 0 10px; }
+    footer .tag { display: block; margin-top: 8px; opacity: 0.7; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax slice">
+      <!-- Distant sun -->
+      <circle cx="950" cy="380" r="58" fill="#FFD8A8" opacity="0.6"/>
+      <!-- Far mountain ridge (ancient landscape) -->
+      <path d="M0,560 L120,430 L210,490 L320,360 L430,470 L540,380 L660,500 L780,370 L900,450 L1020,340 L1140,470 L1200,440 L1200,800 L0,800 Z" fill="#1a2e52" opacity="0.85"/>
+      <!-- Mid mountain -->
+      <path d="M0,640 L140,520 L260,610 L380,490 L500,580 L620,490 L740,600 L860,520 L990,590 L1110,500 L1200,560 L1200,800 L0,800 Z" fill="#0a1830" opacity="0.95"/>
+      <!-- Near horizon -->
+      <path d="M0,720 L1200,720 L1200,800 L0,800 Z" fill="#000000"/>
+      <!-- Subtle 'AI' watermark in the sky -->
+      <text x="100" y="200" fill="#FFFFFF" opacity="0.06" font-family="Fira Sans Extra Condensed, sans-serif" font-weight="800" font-size="160" letter-spacing="8">AI</text>
+    </svg>
+  </div>
+
+  <div class="hero-top">
+    <div class="container" style="padding-top: 24px;">
+      <span class="partner-claim">Claude Partner Network · Services Partner</span>
+      <p class="partner-sentence">Strategy Sprints is the Claude Partner Network's Services Partner installing AI-native go-to-market into B2B founders.</p>
+
+      <h1 class="hero-headline">One agent shipped. One workflow live. One day.</h1>
+      <p class="hero-sub">By 5pm you walk out with a working AI agent inside your business — not a deck about one.</p>
+
+      <div class="hero-cta-row">
+        <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=workshop-lp&utm_medium=hero&utm_campaign=jetpack-workshop" class="btn-primary">Book the Workshop</a>
+        <span class="price-flag">$5,000 · one day · <small>Vienna or Zoom</small></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom-overlay">
+    <div class="container">
+      <div class="jetpack-overlay">JETPACK WORKSHOP</div>
+      <span class="ai-tag">+ AI INSIDE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF BAND ============ -->
+<section class="proof-band">
+  <div class="container">
+    <span class="label">Client proof</span>
+    <p class="body">Alchemy — $3M/yr B2B client. <strong>130% revenue growth in 90 days.</strong> <strong>144× ROI</strong> on the engagement. Three agents installed. They still run.</p>
+  </div>
+</section>
+
+<!-- ============ SINGLE SENTENCE ============ -->
+<section class="single-sentence">
+  <div class="container">
+    <p><em>Morning:</em> see what's possible. <em>Afternoon:</em> ship the first thing.</p>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE MOVE ============ -->
+<section class="signature">
+  <div class="container">
+    <h2>The signature move</h2>
+    <p>While you watch in the morning, an advisor agent prepares your afternoon workshop in front of you — live. The product builds itself before you have signed anything more than your name on the door.</p>
+  </div>
+</section>
+
+<!-- ============ OUTCOMES ============ -->
+<section class="body-section">
+  <div class="container">
+    <h2>What you leave with</h2>
+    <ul class="outcomes">
+      <li><span class="marker">1</span><span>A production agent running in your stack by 5pm — not a prototype.</span></li>
+      <li><span class="marker">2</span><span>A prospecting workflow sending from your inbox tomorrow at 7am.</span></li>
+      <li><span class="marker">3</span><span>One revenue lever measurably moving inside seven days.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing">
+  <div class="container">
+    <h2>The Workshop</h2>
+    <div class="price-row">
+      <span class="amount">$5,000</span>
+      <span class="terms">one day · in-person in Vienna or Zoom from your office</span>
+    </div>
+    <p class="includes">You leave with your context file, one production agent your team can run on Monday, and the first prospecting workflow already sending.</p>
+    <span class="velocity">Direction + Speed = Velocity</span>
+    <br>
+    <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=workshop-lp&utm_medium=pricing&utm_campaign=jetpack-workshop" class="btn-primary">Book the Workshop</a>
+  </div>
+</section>
+
+<!-- ============ BRING / WE BRING ============ -->
+<section class="bring">
+  <div class="container">
+    <h2 style="font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 800;">You bring. We bring.</h2>
+    <div class="bring-grid">
+      <div class="bring-card you">
+        <h3>You bring</h3>
+        <ul>
+          <li>A laptop</li>
+          <li>Your company website</li>
+          <li>One repeatable workflow you currently hate</li>
+        </ul>
+      </div>
+      <div class="bring-card we">
+        <h3>We bring</h3>
+        <ul>
+          <li>Claude Code</li>
+          <li>The agent build</li>
+          <li>The prospecting framework</li>
+          <li>Six hours of Simon's full attention</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq">
+  <div class="container">
+    <h2>Questions</h2>
+
+    <details>
+      <summary>What is an agent?</summary>
+      <p>An agent is a small program that does one repeatable job for you — like researching five prospects every morning, drafting outreach, and posting the draft to your phone before 8am. It runs without you opening anything.</p>
+    </details>
+
+    <details>
+      <summary>What do I leave with?</summary>
+      <p>A production agent running inside your business. A prospecting workflow sending from your inbox. A revenue lever you can measure by Friday. Code that runs without you — not slides about code that might.</p>
+    </details>
+
+    <details>
+      <summary>Is the Workshop in-person or remote?</summary>
+      <p>Both work. In-person in Vienna or Zoom from your office. Same outcome either way.</p>
+    </details>
+
+    <details>
+      <summary>Who is the Workshop for?</summary>
+      <p>B2B founders running 5 to 500 employee companies who want AI inside the business, not on top of it. Bring up to three people — your COO, your head of sales, your operator.</p>
+    </details>
+
+    <details>
+      <summary>What if I can't build the agent on the day?</summary>
+      <p>You don't build alone. Simon and the advisor agents ship the first agent together with you, before you leave. The afternoon is implementation, not theory.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final">
+  <div class="container">
+    <h2>30 minutes with Simon</h2>
+    <p>You bring the bottleneck. He tells you straight whether one day will move it.</p>
+    <a href="https://calendly.com/simonseverino/coffee-with-simon?utm_source=workshop-lp&utm_medium=cta-final&utm_campaign=jetpack-workshop" class="btn-primary">Book the call</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <p>
+      <a href="https://strategysprints.com">Strategy Sprints</a>
+      <a href="https://strategysprints.com/tools">12 Free Tools</a>
+      <a href="https://strategysprints.com/podcast">Podcast</a>
+      <a href="https://strategysprints.com/blog">Blog</a>
+    </p>
+    <span class="tag">Direction + Speed = Velocity · Simon Severino</span>
+  </div>
+</footer>
+
+</body>
+</html>
