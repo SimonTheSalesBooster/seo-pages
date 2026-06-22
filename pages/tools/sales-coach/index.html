@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Coach Plugin — Setup Guide | Strategy Sprints</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #E63946;
+      --red-dark: #c0222f;
+      --pink: #E63946;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --off-white: #F7F7F5;
+      --border: #E8E8E4;
+      --text-secondary: #5A5A5A;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+      --amber: #d97706;
+      --amber-light: #fffbeb;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* SIDE BRAND STRIP — the "logo on the side" */
+    .brand-strip {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 44px;
+      background: var(--red);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .brand-strip-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+    }
+    .brand-strip-logo {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: white;
+      white-space: nowrap;
+      margin-bottom: 16px;
+    }
+    .brand-strip-emoji {
+      font-size: 1rem;
+      color: white;
+      line-height: 1;
+      margin-top: 20px;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 44px;
+      right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 2px solid var(--red);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-tag {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 96px 24px 80px;
+      margin-left: 44px;
+    }
+
+    /* HERO */
+    .hero { margin-bottom: 52px; }
+    .hero-kicker {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 6vw, 3.4rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: normal; color: var(--red); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .hero-simon {
+      font-size: 0.95rem;
+      color: var(--black);
+      font-style: italic;
+      border-left: 3px solid var(--red);
+      padding: 12px 16px;
+      margin-bottom: 28px;
+      background: var(--off-white);
+      border-radius: 0 4px 4px 0;
+      line-height: 1.6;
+    }
+    .hero-simon cite {
+      display: block;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--red);
+      margin-top: 8px;
+    }
+
+    /* TIME BADGE */
+    .time-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+    .badge.red { background: var(--red); color: var(--white); border-color: var(--red); }
+
+    /* BROWSER CALLOUT */
+    .browser-alt {
+      background: var(--amber-light);
+      border-left: 4px solid var(--amber);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin-bottom: 40px;
+    }
+    .browser-alt strong {
+      display: block;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+    .browser-alt p { font-size: 0.93rem; color: #78350f; line-height: 1.55; }
+    .browser-alt a { color: var(--amber); font-weight: 700; }
+
+    /* SECTION HEADERS */
+    .section-label {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    h2 {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    h3 {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    /* STEP CARD */
+    .step-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+
+    .step-num-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .step-circle {
+      width: 32px;
+      height: 32px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.15;
+    }
+
+    p { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* CODE BLOCKS */
+    .code-block {
+      background: #1a1a1a;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 14px 0;
+    }
+    .code-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      background: #111;
+    }
+    .code-block-label {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+    }
+    .copy-btn {
+      background: none;
+      border: 1px solid #444;
+      color: #aaa;
+      border-radius: 3px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover { background: #333; color: #fff; }
+    .copy-btn.copied { background: #16a34a; border-color: #16a34a; color: #fff; }
+    pre {
+      padding: 14px 16px;
+      color: #e5e5e5;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre;
+    }
+    code {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.87em;
+      background: #f0f0ed;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: var(--red-dark);
+    }
+
+    /* NOTE CALLOUTS */
+    .note {
+      background: var(--off-white);
+      border-left: 3px solid var(--border);
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .note strong { color: var(--black); }
+    .note.tip { border-color: var(--green); background: var(--green-light); color: #14532d; }
+    .note.warning { border-color: var(--amber); background: var(--amber-light); color: #78350f; }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.9rem;
+    }
+    th {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+    td:first-child { font-weight: 600; color: var(--black); width: 30%; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--off-white); }
+
+    /* OS TABS */
+    .os-tab-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      border-bottom: 2px solid var(--border);
+    }
+    .os-tab {
+      padding: 9px 20px;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.15s;
+    }
+    .os-tab.active { color: var(--black); border-bottom-color: var(--red); }
+    .os-tab:hover:not(.active) { color: var(--black); }
+    .os-panel { display: none; padding-top: 16px; }
+    .os-panel.active { display: block; }
+
+    /* PATH SELECTOR */
+    .path-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .path-card {
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      text-align: center;
+    }
+    .path-card:hover { border-color: var(--red); }
+    .path-card.selected { border-color: var(--red); background: #fff5f5; }
+    .path-card-icon { font-size: 2rem; margin-bottom: 10px; }
+    .path-card-title {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .path-card-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; }
+
+    .path-content { display: none; }
+    .path-content.active { display: block; }
+
+    /* TROUBLESHOOTING */
+    .trouble-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .trouble-q {
+      padding: 14px 18px;
+      background: var(--off-white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--black);
+      user-select: none;
+      transition: background 0.15s;
+    }
+    .trouble-q:hover { background: #eeede9; }
+    .trouble-q .chevron {
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .trouble-a {
+      display: none;
+      padding: 16px 18px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+    .trouble-a p { margin-bottom: 8px; }
+    .trouble-a p:last-child { margin-bottom: 0; }
+    .trouble-item.open .trouble-a { display: block; }
+    .trouble-item.open .chevron::after { content: '▲ Close'; }
+    .trouble-item:not(.open) .chevron::after { content: '▼ Show fix'; }
+
+    /* QUICK REF */
+    .quick-ref {
+      background: var(--black);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+    .quick-ref h3 {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    .quick-ref .qr-section { margin-bottom: 20px; }
+    .quick-ref .qr-label {
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .quick-ref ul { list-style: none; }
+    .quick-ref ul li {
+      padding: 5px 0;
+      font-size: 0.9rem;
+      color: #ccc;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .quick-ref ul li::before { content: '→'; color: var(--red); flex-shrink: 0; }
+    .quick-ref code {
+      background: #2a2a2a;
+      color: #f0c040;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 0.85em;
+      font-family: 'SF Mono', monospace;
+    }
+    .quick-ref-sig {
+      text-align: center;
+      color: #666;
+      font-size: 1.2rem;
+      padding-top: 20px;
+      border-top: 1px solid #222;
+      margin-top: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA */
+    .cta-box {
+      border: 2px solid var(--red);
+      border-radius: 8px;
+      padding: 28px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    .cta-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .cta-box p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 28px;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Fira Sans Extra Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--red-dark); }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+    .footer {
+      text-align: center;
+      padding: 24px 0;
+      color: #ABABAB;
+      font-size: 0.88rem;
+    }
+    .footer a { color: var(--red); text-decoration: none; }
+    .footer-sig {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
+      .brand-strip { display: none; }
+      .nav { left: 0; }
+      .container { margin-left: 0; padding: 84px 16px 60px; }
+    }
+    @media (max-width: 560px) {
+      .step-card { padding: 20px 18px; }
+      .path-selector { grid-template-columns: 1fr; }
+      .quick-ref { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDE BRAND STRIP -->
+  <div class="brand-strip">
+    <div class="brand-strip-logo">Strategy Sprints</div>
+    <div class="brand-strip-text">Sales Coach Plugin · Setup Guide</div>
+    <div class="brand-strip-emoji">🐬</div>
+    <div class="brand-strip-emoji">🐯</div>
+    <div class="brand-strip-emoji">🌴</div>
+  </div>
+
+  <nav class="nav">
+    <a href="https://strategysprints.com" class="nav-logo">Strategy <span>Sprints</span></a>
+    <span class="nav-tag">Sales Coach Plugin</span>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-kicker">Beginner's Setup Guide</div>
+      <h1>Sales Coach<br><em>Plugin</em><br>Setup Guide</h1>
+
+      <blockquote class="hero-simon">
+        "This is your spotter. You record the call, it scores every step of the Repeatable Sale — with your exact words as proof. No fluff. No guessing. Just the two or three things to fix next time."
+        <cite>— Simon Severino 🐬🐯🌴</cite>
+      </blockquote>
+
+      <p class="hero-sub">Score any sales call against the 8 Steps of the Repeatable Sale. Every score is tied to a verbatim quote from your transcript. Setup takes 15 minutes. After that — one command, and your coach is live.</p>
+
+      <div class="time-badges">
+        <span class="badge red">15 min setup</span>
+        <span class="badge">Mac &amp; Windows</span>
+        <span class="badge">Works with Granola or any transcript</span>
+      </div>
+
+      <div class="browser-alt">
+        <strong>No Terminal? No Problem.</strong>
+        <p>Paste the <code>coach.md</code> contents and your transcript directly into <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> for an identical report — no install needed. This guide covers both paths.</p>
+      </div>
+    </div>
+
+    <!-- WHAT YOU NEED -->
+    <div class="section-label">Before You Start</div>
+    <h2>What You Need</h2>
+    <div class="step-card" style="margin-bottom:32px;">
+      <table>
+        <thead>
+          <tr><th>Requirement</th><th>Why</th><th>Time</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Node.js (v18+)</td>
+            <td>Must come first. Claude Code installs via npm, which is bundled with Node.js. Without Node.js the install command fails immediately with <em>"command not found: npm."</em></td>
+            <td>3 min</td>
+          </tr>
+          <tr>
+            <td>Claude Code CLI</td>
+            <td>The tool that runs your Sales Coach skill.</td>
+            <td>2 min</td>
+          </tr>
+          <tr>
+            <td>Claude subscription or Anthropic Console account</td>
+            <td>You'll log in once on first launch.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>A sales call transcript</td>
+            <td>Via Granola (auto-captured, Path A) or a .md / .txt file you already have (Path B).</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 1: NODE.JS -->
+    <div class="section-label">Step 1 of 5</div>
+    <div class="step-card">
+      <div class="step-num-row">
+        <div class="step-circle">1</div>
+        <div class="step-title">Install Node.js First</div>
+      </div>
+      <p>Go to <a href="https://nodejs.org" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;">nodejs.org</a> and download the <strong>LTS version</strong> (the button on the left — it says "Recommended For Most Users"). Run the installer. The defaults are correct — just click through.</p>
+      <p><strong>After install: close your terminal window and open a fresh one.</strong> This is the most common reason Step 2 fails — Node.js won't be recognised until the terminal restarts.</p>
+      <p style="font-weight:700; font-size:0.9rem; margin-top:16px;">Verify it worked:</p>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-label">Terminal / Command Prompt</span>
+          <button class="copy-btn" onclick="copyCode(this, 'node --version')">Copy</button>
+        </div>
+        <pre>node --version</pre>
+      </div>
+      <p style="font-size:0.9rem; color:var(--text-secondary);">You should see something like <code>v20.14.0</code>. Any v18 or higher is fine. If you see nothing, the terminal wasn't restarted — close it and try again.</p>
+    </div>
+
+    <!-- STEP 2: CLAUDE CODE -->
+    <div class="section-label">Step 2 of 5</div>
+    <div class="step-card">
+      <div class="step-num-row">
+        <div class="step-circle">2</div>
+        <div class="step-title">Install Claude Code</div>
+      </div>
+      <p>In your fresh terminal window, run:</p>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-label">Terminal / Command Prompt</span>
+          <button class="copy-btn" onclick="copyCode(this, 'npm install -g @anthropic-ai/claude-code')">Copy</button>
+        </div>
+        <pre>npm install -g @anthropic-ai/claude-code</pre>
+      </div>
+      <p style="font-weight:700;">Confirm the install:</p>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-label">Terminal / Command Prompt</span>
+          <button class="copy-btn" onclick="copyCode(this, 'claude --version')">Copy</button>
+        </div>
+        <pre>claude --version</pre>
+      </div>
+      <div class="note warning">
+        <strong>Important distinction:</strong> <code>claude --version</code> only confirms the install. It does <em>not</em> launch Claude Code. To actually open and use it, you type <code>claude</code> with no flags — which you'll do in Step 5.
+      </div>
+    </div>
+
+    <!-- STEP 3: STATE FOLDER -->
+    <div class="section-label">Step 3 of 5</div>
+    <div class="step-card">
+      <div class="step-num-row">
+        <div class="step-circle">3</div>
+        <div class="step-title">Create the State Folder</div>
+      </div>
+      <p>The Sales Coach logs your scoring history to <code>~/.claude/state/</code>. Without this folder, history logging fails silently — you'll get scores but no record over time.</p>
+
+      <div class="os-tab-bar" id="tabs-step3">
+        <button class="os-tab active" onclick="switchTab('step3','mac',this)">Mac</button>
+        <button class="os-tab" onclick="switchTab('step3','win',this)">Windows</button>
+      </div>
+      <div id="step3-mac" class="os-panel active">
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-block-label">Mac Terminal</span>
+            <button class="copy-btn" onclick="copyCode(this, 'mkdir -p ~/.claude/state && mkdir -p ~/.claude/commands')">Copy</button>
+          </div>
+          <pre>mkdir -p ~/.claude/state && mkdir -p ~/.claude/commands</pre>
+        </div>
+      </div>
+      <div id="step3-win" class="os-panel">
+        <p style="font-size:0.9rem;color:var(--text-secondary);padding-top:8px;">Press <strong>Win+R</strong>, type <code>cmd</code>, press Enter to open Command Prompt:</p>
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-block-label">Windows Command Prompt</span>
+            <button class="copy-btn" onclick="copyCode(this, 'mkdir %USERPROFILE%\\.claude\\state\nmkdir %USERPROFILE%\\.claude\\commands')">Copy</button>
+          </div>
+          <pre>mkdir %USERPROFILE%\.claude\state
+mkdir %USERPROFILE%\.claude\commands</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: INSTALL COACH.MD -->
+    <div class="section-label">Step 4 of 5</div>
+    <div class="step-card">
+      <div class="step-num-row">
+        <div class="step-circle">4</div>
+        <div class="step-title">Install the Coach Plugin</div>
+      </div>
+      <p>Download <strong>coach.md</strong> and place it inside the <code>~/.claude/commands/</code> folder you just created. That's the only file the plugin needs.</p>
+
+      <p style="font-weight:700; font-size:0.9rem;">Download coach.md:</p>
+      <a href="coach.md" download="coach.md" class="btn-primary" style="display:inline-block; font-size:0.95rem; padding:12px 22px; margin-bottom:20px;">Download coach.md &darr;</a>
+
+      <div class="os-tab-bar" id="tabs-step4">
+        <button class="os-tab active" onclick="switchTab('step4','mac',this)">Mac — copy into place</button>
+        <button class="os-tab" onclick="switchTab('step4','win',this)">Windows — using Notepad</button>
+      </div>
+
+      <div id="step4-mac" class="os-panel active">
+        <p style="font-size:0.9rem; color:var(--text-secondary); padding-top:8px;">Move the downloaded file with this command (replace <code>~/Downloads/coach.md</code> if you saved it elsewhere):</p>
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-block-label">Mac Terminal</span>
+            <button class="copy-btn" onclick="copyCode(this, 'cp ~/Downloads/coach.md ~/.claude/commands/coach.md')">Copy</button>
+          </div>
+          <pre>cp ~/Downloads/coach.md ~/.claude/commands/coach.md</pre>
+        </div>
+        <div class="note tip">
+          <strong>Prefer nano?</strong> Run <code>nano ~/.claude/commands/coach.md</code>, paste the file contents, then Ctrl+O → Enter → Ctrl+X to save.
+        </div>
+      </div>
+
+      <div id="step4-win" class="os-panel">
+        <p style="font-size:0.9rem; color:var(--text-secondary); padding-top:8px;">Move the downloaded file, or create it fresh in Notepad:</p>
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-block-label">Windows Command Prompt</span>
+            <button class="copy-btn" onclick="copyCode(this, 'copy %USERPROFILE%\\Downloads\\coach.md %USERPROFILE%\\.claude\\commands\\coach.md')">Copy</button>
+          </div>
+          <pre>copy %USERPROFILE%\Downloads\coach.md %USERPROFILE%\.claude\commands\coach.md</pre>
+        </div>
+        <div class="note warning">
+          <strong>Notepad trap:</strong> If you create the file in Notepad, go to <strong>File → Save As</strong> and change "Save as type" to <strong>All Files (*.*)</strong> before saving. Otherwise Notepad adds a hidden <code>.txt</code> extension and the plugin won't load.
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5: FIRST LAUNCH -->
+    <div class="section-label">Step 5 of 5</div>
+    <div class="step-card">
+      <div class="step-num-row">
+        <div class="step-circle">5</div>
+        <div class="step-title">First Launch &amp; Login</div>
+      </div>
+      <p>Type <code>claude</code> in your terminal — no flags, nothing else. This is what actually opens Claude Code.</p>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-label">Terminal / Command Prompt</span>
+          <button class="copy-btn" onclick="copyCode(this, 'claude')">Copy</button>
+        </div>
+        <pre>claude</pre>
+      </div>
+
+      <p style="font-weight:700; margin-top:20px;">First-launch sequence — here's exactly what you'll see:</p>
+      <table>
+        <thead><tr><th>What you see</th><th>What to do</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Text-style welcome screen</td>
+            <td>Claude Code is open. You're inside the tool.</td>
+          </tr>
+          <tr>
+            <td>Login method menu</td>
+            <td>Choose <strong>Claude subscription</strong> (claude.ai Pro/Team) or <strong>Anthropic Console</strong> (API key).</td>
+          </tr>
+          <tr>
+            <td>Browser window opens</td>
+            <td>Log in to your Anthropic account. The page will confirm you're authenticated and close.</td>
+          </tr>
+          <tr>
+            <td>Terminal shows prompt <code>&gt;</code></td>
+            <td>You're logged in. Claude Code is ready.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-weight:700; margin-top:22px;">Set your model once — right now:</p>
+      <p style="font-size:0.9rem; color:var(--text-secondary);">Model selection happens inside a running session, not during setup. After login, type:</p>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-block-label">Inside Claude Code</span>
+          <button class="copy-btn" onclick="copyCode(this, '/model sonnet')">Copy</button>
+        </div>
+        <pre>/model sonnet</pre>
+      </div>
+      <p style="font-size:0.88rem; color:var(--text-secondary);">This saves permanently. You won't need to set it again. Check what's active any time with <code>/status</code>.</p>
+      <div class="note tip">
+        <strong>Why Sonnet, not Opus?</strong> Sonnet is fast, cost-efficient, and more than capable for scoring a sales call. Opus is overkill here — slower and more expensive for the same result on this task.
+      </div>
+    </div>
+
+    <div class="note" style="margin-bottom:32px; font-size:1rem;">
+      <strong>✅ Setup complete.</strong> Everything below is how you actually use it — choose your transcript path.
+    </div>
+
+    <hr class="divider">
+
+    <!-- TRANSCRIPT PATH SELECTOR -->
+    <div class="section-label">Using the Plugin</div>
+    <h2>Choose Your Transcript Path</h2>
+    <p style="color:var(--text-secondary); margin-bottom:20px;">How are you getting your transcript into the coach? Pick one:</p>
+
+    <div class="path-selector">
+      <div class="path-card" id="path-a-card" onclick="selectPath('a')">
+        <div class="path-card-icon">🎙️</div>
+        <div class="path-card-title">Path A — Granola</div>
+        <div class="path-card-desc">Granola auto-captures your calls and feeds transcripts directly to Claude Code. Fastest for recurring use.</div>
+      </div>
+      <div class="path-card" id="path-b-card" onclick="selectPath('b')">
+        <div class="path-card-icon">📄</div>
+        <div class="path-card-title">Path B — Local File</div>
+        <div class="path-card-desc">You have a transcript as a .md or .txt file. No Granola required — works with any recording tool.</div>
+      </div>
+    </div>
+
+    <!-- PATH A -->
+    <div class="path-content" id="path-a">
+      <div class="step-card">
+        <h3>Path A: Granola Setup</h3>
+        <p>Granola transcribes your calls automatically and connects to Claude Code via MCP. Set up once — then it's one command after every call.</p>
+        <p><strong>1. Install Granola</strong> — download from <a href="https://granola.ai" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;">granola.ai</a></p>
+        <p><strong>2. Connect Granola to Claude Code</strong> — follow the MCP setup at <a href="https://granola.ai/docs/mcp" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;">granola.ai/docs/mcp</a></p>
+        <p><strong>3. After any call</strong>, open Claude Code and type:</p>
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-block-label">Inside Claude Code</span>
+            <button class="copy-btn" onclick="copyCode(this, '/coach')">Copy</button>
+          </div>
+          <pre>/coach</pre>
+        </div>
+        <p style="font-size:0.9rem; color:var(--text-secondary);">Granola pulls the latest transcript automatically. Your coach returns a score, verbatim evidence for each of the 8 Steps, and your top 3 fixes.</p>
+        <div class="note">
+          <strong>Transcript not showing up?</strong> Make sure Granola was running during the call and the MCP connection is active. See Troubleshooting below.
+        </div>
+      </div>
+    </div>
+
+    <!-- PATH B -->
+    <div class="path-content" id="path-b">
+      <div class="step-card">
+        <h3>Path B: Local Transcript File</h3>
+        <p>Save any transcript as a <code>.md</code> or <code>.txt</code> file and run the coach on it directly. Works with Otter, Fireflies, Zoom transcripts, or anything you can export as text.</p>
+
+        <p style="font-weight:700;">Suggested folder — create once:</p>
+        <div class="os-tab-bar" id="tabs-pathb">
+          <button class="os-tab active" onclick="switchTab('pathb','mac',this)">Mac</button>
+          <button class="os-tab" onclick="switchTab('pathb','win',this)">Windows</button>
+        </div>
+        <div id="pathb-mac" class="os-panel active">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-label">Mac Terminal</span>
+              <button class="copy-btn" onclick="copyCode(this, 'mkdir -p ~/transcripts')">Copy</button>
+            </div>
+            <pre>mkdir -p ~/transcripts</pre>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-secondary);">Save transcripts like: <code>~/transcripts/acme-call-2026-06-22.md</code></p>
+          <p style="font-weight:700; margin-top:14px;">Run the coach:</p>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-label">Inside Claude Code</span>
+              <button class="copy-btn" onclick="copyCode(this, '/coach file ~/transcripts/acme-call-2026-06-22.md')">Copy</button>
+            </div>
+            <pre>/coach file ~/transcripts/acme-call-2026-06-22.md</pre>
+          </div>
+          <div class="note tip">
+            <strong>🐬 Drag-and-drop tip:</strong> Open Finder, navigate to your transcript, drag the file into the Terminal window. The full path is pasted automatically — no typing required.
+          </div>
+        </div>
+        <div id="pathb-win" class="os-panel">
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-label">Windows Command Prompt</span>
+              <button class="copy-btn" onclick="copyCode(this, 'mkdir %USERPROFILE%\\transcripts')">Copy</button>
+            </div>
+            <pre>mkdir %USERPROFILE%\transcripts</pre>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-secondary);">Save transcripts like: <code>C:\Users\YourName\transcripts\acme-call-2026-06-22.md</code></p>
+          <p style="font-weight:700; margin-top:14px;">Run the coach:</p>
+          <div class="code-block">
+            <div class="code-block-header">
+              <span class="code-block-label">Inside Claude Code</span>
+              <button class="copy-btn" onclick="copyCode(this, '/coach file C:\\Users\\YourName\\transcripts\\acme-call-2026-06-22.md')">Copy</button>
+            </div>
+            <pre>/coach file C:\Users\YourName\transcripts\acme-call-2026-06-22.md</pre>
+          </div>
+          <div class="note tip">
+            <strong>Windows path tip:</strong> Hold <strong>Shift</strong> and right-click your file → "Copy as path." Paste it directly into the command above.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- QUICK REF -->
+    <div class="quick-ref">
+      <h3>Quick Reference Card 🐯</h3>
+
+      <div class="qr-section">
+        <div class="qr-label">Setup Checklist — One Time</div>
+        <ul>
+          <li>Install Node.js from nodejs.org (LTS version)</li>
+          <li>Close and reopen Terminal after Node.js installs</li>
+          <li>Run <code>npm install -g @anthropic-ai/claude-code</code></li>
+          <li>Create <code>~/.claude/state/</code> and <code>~/.claude/commands/</code></li>
+          <li>Place <code>coach.md</code> in <code>~/.claude/commands/</code></li>
+          <li>Run <code>claude</code>, log in, set <code>/model sonnet</code></li>
+        </ul>
+      </div>
+
+      <div class="qr-section">
+        <div class="qr-label">After Every Call — Path A (Granola)</div>
+        <ul>
+          <li>Open Terminal → type <code>claude</code> → press Enter</li>
+          <li>Type <code>/coach</code> — Granola handles the rest</li>
+          <li>Read your score + top 3 fixes</li>
+        </ul>
+      </div>
+
+      <div class="qr-section">
+        <div class="qr-label">After Every Call — Path B (Local File)</div>
+        <ul>
+          <li>Save transcript to <code>~/transcripts/</code></li>
+          <li>Open Terminal → type <code>claude</code> → press Enter</li>
+          <li>Type <code>/coach file ~/transcripts/your-file.md</code></li>
+          <li>Read your score + top 3 fixes</li>
+        </ul>
+      </div>
+
+      <div class="qr-section">
+        <div class="qr-label">Useful Commands</div>
+        <ul>
+          <li><code>/model sonnet</code> — set model (once)</li>
+          <li><code>/status</code> — check which model is active</li>
+          <li><code>/coach</code> — score via Granola (Path A)</li>
+          <li><code>/coach file &lt;path&gt;</code> — score a local file (Path B)</li>
+        </ul>
+      </div>
+
+      <div class="qr-section">
+        <div class="qr-label">Browser Alternative — No Install</div>
+        <ul>
+          <li>Go to claude.ai in your browser</li>
+          <li>Paste the full contents of <code>coach.md</code></li>
+          <li>Paste your transcript in the same message and send</li>
+          <li>Works identically — no Terminal, no setup</li>
+        </ul>
+      </div>
+
+      <div class="quick-ref-sig">🐬 🐯 🌴</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TROUBLESHOOTING -->
+    <div class="section-label">Troubleshooting</div>
+    <h2>Something Not Working?</h2>
+    <p style="color:var(--text-secondary); margin-bottom:20px;">Click any issue below to see the fix.</p>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>"command not found: npm" when installing Claude Code</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>Node.js isn't installed, or you didn't restart Terminal after install.</p>
+        <p><strong>Fix:</strong> Go to nodejs.org → download LTS → run installer → close Terminal completely → open a fresh window → run <code>node --version</code> to confirm → then retry npm.</p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>"command not found: claude" after the npm install</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>npm installed Claude Code but your terminal's PATH doesn't include npm's global bin folder yet.</p>
+        <p><strong>Fix:</strong> Close and reopen Terminal. If it still fails, run <code>npm config get prefix</code> — the result is the folder where the binary lives. Add <code>/that-folder/bin</code> to your PATH.</p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>I ran "claude --version" and nothing opened</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p><code>claude --version</code> only prints the version number. It does not launch the tool.</p>
+        <p><strong>Fix:</strong> Type <code>claude</code> (nothing else) and press Enter. That opens the interactive session.</p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>Claude Code opened but I don't know where to type</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>Claude Code runs as a text interface inside your terminal window. After the login screen, you'll see a prompt — usually <code>&gt;</code>.</p>
+        <p><strong>Fix:</strong> Click inside the terminal and type your command (e.g. <code>/coach</code>). Press Enter to run it.</p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>I don't know which model is active / I want to change it</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>Run <code>/status</code> inside Claude Code to see the current model. To change: type <code>/model sonnet</code> (recommended) or <code>/model opus</code>. The setting persists between sessions.</p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>"coach.md not found" when I type /coach</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>The plugin file isn't in the right folder.</p>
+        <p><strong>Mac fix:</strong> Run <code>ls ~/.claude/commands/</code> — you should see <code>coach.md</code> listed. If not, redo Step 4.</p>
+        <p><strong>Windows fix:</strong> Open File Explorer → navigate to <code>%USERPROFILE%\.claude\commands\</code> → confirm <code>coach.md</code> is there (not <code>coach.md.txt</code>).</p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>"File not found" using /coach file &lt;path&gt; (Path B)</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>The path is wrong, the file has a different name, or you're using forward slashes on Windows.</p>
+        <p><strong>Mac:</strong> Drag the file from Finder into Terminal — the correct path is pasted automatically.</p>
+        <p><strong>Windows:</strong> Hold Shift → right-click the file → "Copy as path" → paste into the command. Use backslashes: <code>C:\Users\YourName\transcripts\file.md</code></p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>Granola transcript isn't being picked up by /coach</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>Either the MCP connection isn't active, or Granola didn't record the call.</p>
+        <p><strong>Fix:</strong> Check your MCP connection at granola.ai/docs/mcp. Make sure Granola was running during the call and the meeting appears in Granola. If the transcript isn't in Granola, switch to Path B: export it as a .txt file and use <code>/coach file &lt;path&gt;</code>.</p>
+      </div>
+    </div>
+
+    <div class="trouble-item" onclick="toggleTrouble(this)">
+      <div class="trouble-q">
+        <span>Windows: Notepad added ".txt" to my coach.md file</span>
+        <span class="chevron"></span>
+      </div>
+      <div class="trouble-a">
+        <p>Notepad adds a hidden .txt extension unless you change "Save as type" to All Files. The result is <code>coach.md.txt</code> — which the plugin can't find.</p>
+        <p><strong>Fix:</strong> In File Explorer, go to View → Show → File name extensions. Find <code>coach.md.txt</code> and rename it to <code>coach.md</code>.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h3>See This Running Live 🐬</h3>
+      <p>Join Jetpack Monthly — a 60-minute live workshop where we coach a real call together using the 8 Steps. You'll see exactly how to read the scores and turn the top fix into your next win.</p>
+      <a href="https://strategysprints.com" target="_blank" rel="noopener" class="btn-primary">Explore Jetpack &rarr;</a>
+    </div>
+
+    <div style="text-align:center; padding: 8px 0 32px;">
+      <p style="font-size:0.95rem; color:var(--text-secondary); margin-bottom:14px;">Questions? Book 20 minutes with Simon — no pitch, just answers.</p>
+      <a href="https://calendly.com/simonseverino/coffee-with-simon" target="_blank" rel="noopener" style="color:var(--red); font-weight:700; font-size:0.95rem;">Book a call with Simon &rarr;</a>
+    </div>
+
+    <div class="footer">
+      <div class="footer-sig">🐬 🐯 🌴</div>
+      <p>&copy; 2026 Strategy Sprints &mdash; <a href="https://strategysprints.com">strategysprints.com</a></p>
+    </div>
+
+  </div><!-- /container -->
+
+  <script>
+    function switchTab(group, os, btn) {
+      var bar = document.getElementById('tabs-' + group);
+      bar.querySelectorAll('.os-tab').forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('#' + group + '-mac, #' + group + '-win').forEach(function(p) { p.classList.remove('active'); });
+      document.getElementById(group + '-' + os).classList.add('active');
+    }
+
+    function selectPath(path) {
+      document.getElementById('path-a-card').classList.remove('selected');
+      document.getElementById('path-b-card').classList.remove('selected');
+      document.getElementById('path-a').classList.remove('active');
+      document.getElementById('path-b').classList.remove('active');
+      document.getElementById('path-' + path + '-card').classList.add('selected');
+      document.getElementById('path-' + path).classList.add('active');
+      document.getElementById('path-' + path).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function toggleTrouble(item) {
+      item.classList.toggle('open');
+    }
+
+    function copyCode(btn, text) {
+      var toCopy = text || btn.closest('.code-block').querySelector('pre').textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(toCopy).then(function() { flashCopied(btn); });
+      } else {
+        var el = document.createElement('textarea');
+        el.value = toCopy;
+        el.style.position = 'fixed';
+        el.style.opacity = '0';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        flashCopied(btn);
+      }
+    }
+    function flashCopied(btn) {
+      btn.classList.add('copied');
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.classList.remove('copied'); btn.textContent = 'Copy'; }, 1800);
+    }
+  </script>
+
+</body>
+</html>
